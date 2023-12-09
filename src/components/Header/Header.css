@@ -11,6 +11,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0px;
 }
 
 #navbar li {
@@ -53,7 +54,7 @@ nav {
 
 @media screen and (max-width: 769px) {
     nav {
-        padding: 10px 80px;
+        padding: 10px 80px 10px 80px;
     }
     #navbar {
         display: flex;

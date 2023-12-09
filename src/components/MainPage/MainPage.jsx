@@ -3,6 +3,9 @@ import './mainpage.css'
 
 const MainPage = () => {
     return (
+        // <div>
+        //     <h2>Home Page</h2>
+        // </div>
         <div className='mainpage'>
             <div className='img-div flex-item'>
                 <img src="/src/images/model2.png" alt="" />
