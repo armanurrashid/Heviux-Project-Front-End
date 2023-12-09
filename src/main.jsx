@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import Shop from './components/Shop/Shop.jsx';
+import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 import Home from './components/Layout/Home.jsx';
 import Men from './components/Men/Men.jsx';
 import Women from './components/Women/Women.jsx';
 import Kids from './components/Kids/Kids.jsx';
 import MainPage from './components/MainPage/MainPage.jsx';
+// import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,26 +20,25 @@ const router = createBrowserRouter([
         path: '/',
         element: <MainPage></MainPage>
       },
-      {
-        path: '/shop',
-        element: <Shop></Shop>
-      },
+      // {
+      //   path: '/shop',
+      //   element: <ProductDetails></ProductDetails>
+      // },
       {
         path: '/men',
         element: <Men></Men>,
-        // loader: cartProductLoader
       },
       {
         path: '/women',
         element: <Women></Women>
       },
-      // {
-      //   path: '/checkout',
-      //   element: <Checkout></Checkout>
-      // },
       {
         path: '/kids',
         element: <Kids></Kids>
+      },
+      {
+        path: '/productDetails',
+        element: <ProductDetails />
       }
     ]
   }
@@ -46,6 +46,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-    {/* <App /> */}
   </React.StrictMode>,
 )
