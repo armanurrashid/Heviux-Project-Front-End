@@ -29,7 +29,7 @@ class Header extends Component {
                 Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/shop"
                 className={`link ${this.state.activeLink === "Shop" ? "active" : ""}`}
@@ -37,7 +37,7 @@ class Header extends Component {
               >
                 Shop
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/men"
