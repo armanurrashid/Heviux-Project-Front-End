@@ -67,7 +67,15 @@ class Header extends Component {
             </li>
           </ul>
         </div>
-        <div></div>
+        <div>
+        <Link
+                to="/kids"
+                className={`link ${this.state.activeLink === "Kids" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("Kids")}
+              >
+                Login
+              </Link>
+        </div>
         <div id="mobile" onClick={this.handleClick}>
           <i id="bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
