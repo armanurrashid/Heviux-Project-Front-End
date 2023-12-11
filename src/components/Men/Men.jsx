@@ -3,24 +3,27 @@ import { useState } from 'react';
 import './Men.css';
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
+import img from "../../images/slide-3.png";
+import filterImg from "../../images/settings-sliders.png";
 // import {Scrollbars} from "react-custom-scrollbars"
 // Assume you have a JSON array with product data
 const productData = [
-    { id: 1, name: 'Classic Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 190, },
-    { id: 2, name: 'Casual Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 190, price: 130, },
-    { id: 3, name: 'Printed Premium Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 170, price: 250, },
-    { id: 4, name: 'Full Sleeve Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 170, },
-    { id: 5, name: 'Premium Cotton Jacket', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 145, price: 120, },
-    { id: 6, name: 'Full Sleeve Jacket', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 190, price: 470, },
-    { id: 7, name: 'Blue Jeans', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 150, price: 165, },
-    { id: 8, name: 'New Black Jeans', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 354, },
-    { id: 9, name: 'Classic Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 190, },
-    { id: 10, name: 'Casual Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 190, price: 130, },
-    { id: 11, name: 'Printed Premium Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 170, price: 250, },
-    { id: 12, name: 'Full Sleeve Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 170, }, { id: 9, name: 'Classic Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 190, },
-    { id: 10, name: 'Casual Fit Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 190, price: 130, },
-    { id: 11, name: 'Printed Premium Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 170, price: 250, },
-    { id: 12, name: 'Full Sleeve Shirt', image: '/src/images/slide-3.png', fabric: 'Cotton', gsm: 180, price: 170, },
+    { id: 1, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
+    { id: 2, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
+    { id: 3, name: 'Printed Premium Shirt', image: img, fabric: 'Cotton', gsm: 170, price: 250, },
+    { id: 4, name: 'Full Sleeve Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 170, },
+    { id: 5, name: 'Premium Cotton Jacket', image: img, fabric: 'Cotton', gsm: 145, price: 120, },
+    { id: 6, name: 'Full Sleeve Jacket', image: img, fabric: 'Cotton', gsm: 190, price: 470, },
+    { id: 7, name: 'Blue Jeans', image: img, fabric: 'Cotton', gsm: 150, price: 165, },
+    { id: 8, name: 'New Black Jeans', image: img, fabric: 'Cotton', gsm: 180, price: 354, },
+    { id: 9, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
+    { id: 10, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
+    { id: 11, name: 'Printed Premium Shirt', image: img, fabric: 'Cotton', gsm: 170, price: 250, },
+    { id: 12, name: 'Full Sleeve Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 170, }, 
+    { id: 9, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
+    { id: 10, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
+    { id: 11, name: 'Printed Premium Shirt', image: img, fabric: 'Cotton', gsm: 170, price: 250, },
+    { id: 12, name: 'Full Sleeve Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 170, },
 ];
 const Men = () => {
     const itemsPerPage = 12; // Number of items to display per page
@@ -49,7 +52,7 @@ const Men = () => {
             <div className="container py-2">
                 <div className='d-flex pt-3 ps-3'>
                     <div className='d-flex'>
-                        <img src="/src/images/settings-sliders.png" alt="" id="filterImg" />
+                        <img src={filterImg} alt="" id="filterImg" />
                     </div>
                     <div className='d-flex flex-row align-items-center'>
                         <h5 className='mb-0 ms-2'>Filters</h5>
