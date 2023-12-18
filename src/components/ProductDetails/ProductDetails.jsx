@@ -48,8 +48,8 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <div>
-                            <button className='me-4' style={{backgroundColor:"#1b2430"}}>ADD TO CART</button>
-                            <button className='bg-success'>Buy Now</button>
+                            <button className='me-4 cartButton' style={{backgroundColor:"#1b2430"}}>ADD TO CART</button>
+                            <button className='bg-success buyButton'>Buy Now</button>
                         </div>
                     </div>
                 </div>

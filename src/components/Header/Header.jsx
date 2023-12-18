@@ -9,7 +9,6 @@ class Header extends Component {
   state = { clicked: false, activeLink: "Home" };
 
   componentDidMount() {
-    // Retrieve the active link from local storage on component mount
     const activeLink = localStorage.getItem("activeLink");
     if (activeLink) {
       this.setState({ activeLink });
@@ -17,7 +16,6 @@ class Header extends Component {
   }
 
   componentDidUpdate() {
-    // Update local storage with the active link on component update
     localStorage.setItem("activeLink", this.state.activeLink);
   }
 
@@ -30,6 +28,7 @@ class Header extends Component {
   };
 
   render() {
+    const isSmallScreen = window.innerWidth < 850;
     return (
       <nav className="header">
         <img src={logo} alt="" style={{ width: "130px", height: "auto" }} />
@@ -71,36 +70,73 @@ class Header extends Component {
                 Kids
               </Link>
             </li>
+            
+            <li>
+              {isSmallScreen ? (
+                <Link
+                  to="/orderReview"
+                  className={`link ${this.state.activeLink === "OrderReview" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("OrderReview")}
+                >
+                  Cart
+                </Link>
+              ) : (
+                <Link
+                  to="/orderReview"
+                  className={`link ${this.state.activeLink === "OrderReview" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("OrderReview")}
+                >
+                  <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                </Link>
+              )}
+            </li>
+            <li>
+              {isSmallScreen ? (
+                <Link
+                  to="/cart"
+                  className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("cart")}
+                >
+                  Message
+                </Link>
+              ) : (
+                <Link
+                  to="/chat"
+                  className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("cart")}
+                >
+                  <FontAwesomeIcon icon={faComment} size="lg" />
+                </Link>
+              )}
+            </li>
+            <li>
+              {isSmallScreen ? (
+                <Link
+                  to="/cart"
+                  className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("cart")}
+                >
+                  Logout
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
+                  onClick={() => this.handleLinkClick("cart")}
+                >
+                  <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
+                </Link>
+              )}
+            </li>
+
+
           </ul>
-        </div>
-        <div>
-        <Link
-            to="/cart"
-            className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3`}
-            onClick={() => this.handleLinkClick("Login")}
-          >
-            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-          </Link>
-          <Link
-            to="/chat"
-            className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3`}
-            onClick={() => this.handleLinkClick("Login")}
-          >
-            <FontAwesomeIcon icon={faComment} size="lg" />
-          </Link>
-          <Link
-            to="/login"
-            className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3` }
-            onClick={() => this.handleLinkClick("Login")}
-          >
-            <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
-          </Link>
         </div>
         <div id="mobile" onClick={this.handleClick}>
           <i id="bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
       </nav>
-      
+
     );
   }
 }

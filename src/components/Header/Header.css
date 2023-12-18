@@ -7,6 +7,15 @@ nav {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
 
+
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+} */
+
 #navbar {
     display: flex;
     align-items: center;
@@ -53,7 +62,7 @@ nav {
     color: #fff;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 850px) {
     nav {
         padding: 10px 80px 10px 80px;
     }

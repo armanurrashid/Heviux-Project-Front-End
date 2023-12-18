@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-body {
+
+/* body {
     background-color: #f9f6f2;
-}
+} */
 
 #filterImg {
     height: auto;

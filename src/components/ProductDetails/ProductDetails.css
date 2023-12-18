@@ -90,7 +90,6 @@
 
 .productdisplay-right-sizes div:hover {
     background: #198754;
-    /* border: 1px solid green; */
     color: white;
 }
 
@@ -99,13 +98,18 @@
     width: 150px;
     font-size: 16px;
     font-weight: 600;
-    color: white;
-    /* background: #FF4141; */
     margin-bottom: 20px;
     border: none;
     outline: none;
     cursor: pointer;
+    color: white;
 }
+
+
+/* .productdisplay-right button:hover {
+    color: white;
+    background: ;
+} */
 
 .productdisplay-right {
     margin-top: 10px;

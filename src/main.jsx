@@ -8,6 +8,7 @@ import Home from './components/Layout/Home.jsx';
 import Men from './components/Men/Men.jsx';
 import Women from './components/Women/Women.jsx';
 import Kids from './components/Kids/Kids.jsx';
+import OrderReview from './components/OrderReview/OrderReview.jsx';
 import MainPage from './components/MainPage/MainPage.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/productDetails',
         element: <ProductDetails />
+      },
+      {
+        path: '/orderReview',
+        element: <OrderReview />
       }
     ]
   }
