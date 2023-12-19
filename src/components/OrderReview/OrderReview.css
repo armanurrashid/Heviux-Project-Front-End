@@ -1,98 +1,172 @@
-/* .cartitems {
-    margin: 40px 100px;
-}
-
-hr {
-    height: 1px;
-    background: #f2bdbd;
-    border: 0;
-    margin: 0.5rem 0;
-} */
-
-
-/* .cartitems-format-main {
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 75px;
-    padding: 5px 0px;
-    font-size: 18px;
-    font-weight: 600;
-} */
-
-
-/* .cartitems-format {
-    font-size: 17px;
-    font-weight: 500;
-    color: #454545;
-} */
-
-
-/* .cartitems-format p {
-    margin-bottom: 0px;
-    font-size: 15px;
-} */
-
-
-/* .carticon-product-icon {
-    height: 42px;
-} */
-
-
-/* .cartitems-remove-icon {
-    width: 15px;
-    margin: 0px 40px;
-    cursor: pointer;
-} */
-
-
-/* .cartitems-quantity {
-    width: 64px;
-    height: 50px;
-    border: 2px solid #ebebeb;
-    background: #fff;
-} */
-
-
-/* .cartitems-down {
-    display: flex;
-    margin: 40px 0px;
-} */
-
-
-/* .cartitems-total {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-right: 200px;
-    gap: 10px;
-} */
-
-
-/* .cartitems-total-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0px;
-} */
-
-
-/* .cartitems-total button {
-    width: 250px;
-    height: 50px;
-    outline: none;
-    border: none;
-    background: #ff5a5a;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
+/* .container {
+    margin: 20px 40px;
 } */
 
 .review-container {
-    margin: 50px auto;
+    margin: 50px 0;
 }
 
-.shop-container {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+.review-item {
+    width: 571px;
+    height: 90px;
+    border: 1px solid #95a0a7;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 8px 8px 8px 8px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    /* background-color: white; */
+}
+
+.review-item .product-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+}
+
+.review-details {
+    flex-grow: 1;
+}
+
+.review-details p {
+    margin: 0 15px;
+}
+
+.review-item img {
+    width: 60px;
+    height: 65px;
+    border-radius: 6px;
+}
+
+
+/* 
+.orange-text {
+    color: #ff9900;
+} */
+
+.button-delete {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: rgba(235, 87, 87, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-icon {
+    color: #eb5757;
+    font-size: 27px;
+}
+
+
+/* div.order-details {
+    background-color: #ffe0b2;
+    padding: 20px;
+} */
+
+div.order-details h5 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+/* div.order-details p {
+    margin: 8px 0;
+} */
+
+.btn-clear-cart,
+.btn-proceed {
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 6px;
+    height: 40px;
+    font-size: 18px;
+    align-items: center;
+}
+
+.btn-clear-cart {
+    background-color: #ff3030;
+    color: white;
+}
+
+.order-details {
+    border: 1px solid #95a0a7;
+    /* background-color: #f9f6f2; */
+    background-color: white;
+}
+
+.btn-proceed {
+    margin-top: 30px;
+    background-color: #198754;
+    color: white;
+    /* background-color: #F9CCCC; */
+}
+
+.btn-proceed:hover {
+    /* border: 1px solid #; */
+    border: 1px solid #198754;
+    background-color: white;
+    color: #198754;
+}
+
+@media (max-width: 768px) {
+    div.order-details {
+        padding: 10px;
+    }
+    .btn-clear-cart,
+    .btn-proceed {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .review-item {
+        width: 100%;
+    }
+    .review-item img {
+        width: 40px;
+        height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .btn-clear-cart,
+    .btn-proceed {
+        width: 80%;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 992px) {
+    .btn-clear-cart,
+    .btn-proceed {
+        width: 30%;
+        font-size: 17px;
+    }
+    .order {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+}
+
+
+/* @media (min-width: 1400px) {
+    .review-container {
+        margin: 50px 40px;
+    }
+} */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .order p {
+        /* width: 80%; */
+        font-size: 15px;
+        /* Add any other styles for this specific screen width range */
+    }
 }

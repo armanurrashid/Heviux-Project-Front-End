@@ -1,10 +1,13 @@
+/* Default styles */
+
 .review-item {
     width: 571px;
     height: 90px;
     border: 1px solid #95a0a7;
     border-radius: 8px;
     margin-bottom: 25px;
-    padding: 8px 25px 8px 8px;
+    padding: 8px 8px 8px 8px;
+    margin: 5px;
     display: flex;
     align-items: center;
 }
@@ -18,7 +21,6 @@
 
 .review-details {
     flex-grow: 1;
-    /* flex-grow means it will take as much space as it can take.*/
 }
 
 .review-details p {
@@ -48,4 +50,46 @@
 .delete-icon {
     color: #EB5757;
     font-size: 27px;
+}
+
+
+/* Responsive styles */
+
+
+/* @media (max-width: 1400px) {} */
+
+@media (max-width: 768px) {
+    .review-item {
+        width: 100%;
+    }
+    .review-item img {
+        width: 40px;
+        height: 45px;
+    }
+}
+
+
+/* Default styles */
+
+div.order-details {
+    background-color: #FFE0B2;
+    padding: 20px;
+}
+
+div.order-details h5 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+div.order-details p {
+    margin: 5px 0;
+}
+
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    div.order-details {
+        padding: 10px;
+    }
 }

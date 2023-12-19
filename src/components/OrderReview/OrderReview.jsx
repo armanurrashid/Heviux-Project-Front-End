@@ -1,146 +1,103 @@
-// // import React from 'react';
-// import './OrderReview.css'
-// import remove_icon from '../../images/cart_cross_icon.png'
-// import img5 from "../../images/p1_product.png";
-// const OrderReview = () => {
-//     return (
-
-//         <div className='cartitems'>
-//             <div>
-//                 <div className="row row-cols-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-6 g-4 pt-0 mt-1 fw-bold d-flex">
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Products</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Title</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Price</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Quantity</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Total</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around mt-0">
-//                         <p>Remove</p>
-//                     </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row row-cols-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-6 g-4 mb-2 pt-1 pb-1">
-//                     <div className="col d-flex justify-content-around">
-//                         <img src={img5} alt="" className='carticon-product-icon' />
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>Women Pink Collection</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>$100</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>2</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>$200</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <img className='cartitems-remove-icon' src={remove_icon} alt="" />
-//                     </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row row-cols-6 row-cols-xl-6 row-cols-lg-6 row-cols-md-6 g-4">
-//                     <div className="col d-flex justify-content-around">
-//                         <img src={img5} alt="" className='carticon-product-icon' />
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>Women Pink Collection</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>$100</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>2</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <p>$200</p>
-//                     </div>
-//                     <div className="col d-flex justify-content-around">
-//                         <img className='cartitems-remove-icon' src={remove_icon} alt="" />
-//                     </div>
-//                 </div>
-//             </div>
-
-//             <div className="cartitems-down">
-//                 <div className="cartitems-total">
-//                     <h4>Cart Total</h4>
-//                     <div>
-//                         <div className="cartitems-total-item">
-//                             <p>Subtotal</p>
-//                             <p>$200</p>
-//                         </div>
-//                         <hr />
-//                         <div className="cartitems-total-item">
-//                             <p>Delivery Fee</p>
-//                             <p>Free</p>
-//                         </div>
-//                         <hr />
-//                         <div className="cartitems-total-item">
-//                             <h4>Total</h4>
-//                             <h4>$100</h4>
-//                         </div>
-//                     </div>
-//                     <button>PROCEED TO CHECKOUT</button>
-//                 </div>
-
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default OrderReview;
-
-import { useState } from 'react';
-// import Cart from '../Cart/Cart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt, faMoneyCheckDollar } from '@fortawesome/free-solid-svg-icons'
+import img from "../../images/p1_product.png";
 import './OrderReview.css'
-import { useLoaderData } from 'react-router-dom';
-// import { Link, useLoaderData } from 'react-router-dom';
-import { removeFromDb } from '../../utilities/fakedb';
-// import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
-import ReviewItem from '../ReviewItem/ReviewItem';
-// import ReviewItem from '../ReviewItem/ReviewItem';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faMoneyCheckDollar } from '@fortawesome/free-solid-svg-icons';
-
 const OrderReview = () => {
-    // const savedcart = useLoaderData();
-    // const [cart, setCart] = useState(savedcart);
-
-    // const handleRemoveFromCart = (id) => {
-    //     const remaining = cart.filter(product => product.id !== id);
-    //     setCart(remaining);
-    //     removeFromDb(id);
-    // }
-
-    // const handleClearCart = () => {
-    //     setCart([]);
-    //     deleteShoppingCart();
-    // }
     return (
         <div className='shop-container'>
             <div className="review-container">
                 {
-                    <ReviewItem ></ReviewItem>
+                    <div className='container mb-3 mt-1'>
+                        <div className="row row-cols-1 row-col-xxl-2 row-cols-xl-1 row-cols-lg-1 row-cols-md-1 g-4 pt-4 pb-5 ">
+                            <div className="col-xxl-9 col-xl-9 col-lg-9">
+                                <div className='d-flex flex-wrap justify-content-center'>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                    <div className='review-item mb-3'>
+                                        <img src={img} alt="" className="img-fluid" />
+                                        <div className="review-details">
+                                            <p className='product-title'>1</p>
+                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Order Quantity: <span className='orange-text'>2</span></p>
+                                        </div>
+                                        <button className='button-delete'>
+                                            <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xxl-3 col-xl-3 col-lg-3 order">
+                                <div className="p-3 order-details">
+                                    <h5 className='text-center mb-3'>Order</h5>
+                                    <hr />
+                                    <p><b>Selected Item:</b> 4</p>
+                                    <p><b>Total Price: </b>$1054</p>
+                                    <p><b>Delivery Fee: </b>$51</p>
+                                    <p><b>Grand Total: </b>$1178.78</p>
+                                    {/* <button className='btn-clear-cart '><span>Clear Cart </span>
+                                        <FontAwesomeIcon icon={faTrashAlt} />
+                                    </button> */}
+                                    <button className='btn-proceed'>Payment  <FontAwesomeIcon icon={faMoneyCheckDollar} ></FontAwesomeIcon></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 }
             </div>
-            {/* <div className="cart-container">
-                <Cart cart={cart} handleClearCart={handleClearCart}>
-                    <Link className='proceed-link' to='/checkout'>
-                        <button className='btn-proceed'>Proceed Checkout  <FontAwesomeIcon icon={faMoneyCheckDollar} ></FontAwesomeIcon></button>
-                    </Link>
-                </Cart>
-
-            </div> */}
         </div>
     );
 };
