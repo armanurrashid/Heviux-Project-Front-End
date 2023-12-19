@@ -156,6 +156,19 @@ div.order-details h5 {
     }
 }
 
+@media (max-width: 768px) {
+    .order {
+        width: 97%;
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+    .btn-proceed {
+        width: 40%;
+        font-size: 17px;
+    }
+}
+
 
 /* @media (min-width: 1400px) {
     .review-container {

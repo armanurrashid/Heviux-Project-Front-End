@@ -15,7 +15,7 @@ const OrderReview = () => {
                                         <img src={img} alt="" className="img-fluid" />
                                         <div className="review-details">
                                             <p className='product-title'>1</p>
-                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Price: <span className='orange-text'>$2</span></p>
                                             <p>Order Quantity: <span className='orange-text'>2</span></p>
                                         </div>
                                         <button className='button-delete'>
@@ -26,7 +26,7 @@ const OrderReview = () => {
                                         <img src={img} alt="" className="img-fluid" />
                                         <div className="review-details">
                                             <p className='product-title'>1</p>
-                                            <p>Price: <span className='orange-text'>$1</span></p>
+                                            <p>Price: <span className='orange-text'>$2</span></p>
                                             <p>Order Quantity: <span className='orange-text'>2</span></p>
                                         </div>
                                         <button className='button-delete'>
@@ -83,10 +83,23 @@ const OrderReview = () => {
                                 <div className="p-3 order-details">
                                     <h5 className='text-center mb-3'>Order</h5>
                                     <hr />
-                                    <p><b>Selected Item:</b> 4</p>
-                                    <p><b>Total Price: </b>$1054</p>
-                                    <p><b>Delivery Fee: </b>$51</p>
-                                    <p><b>Grand Total: </b>$1178.78</p>
+                                    <div className='d-flex justify-content-between'>
+                                        <div><p><b>Selected Item:</b></p></div>
+                                        <div>4</div>
+                                    </div>
+                                    <div className='d-flex justify-content-between'>
+                                        <div><p><b>Total Price:</b></p></div>
+                                        <div>$1055</div>
+                                    </div>
+                                    <div className='d-flex justify-content-between'>
+                                        <div><p><b>Delivery Fee:</b></p></div>
+                                        <div>$100</div>
+                                    </div>
+                                    <div className='d-flex justify-content-between'>
+                                        <div><p><b>Total Amount:</b></p></div>
+                                        <div>$1155</div>
+                                    </div>
+                                    
                                     {/* <button className='btn-clear-cart '><span>Clear Cart </span>
                                         <FontAwesomeIcon icon={faTrashAlt} />
                                     </button> */}

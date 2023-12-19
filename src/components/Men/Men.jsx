@@ -74,7 +74,6 @@ const Men = () => {
                     </div>
                 </div>
                 <div className="row row-cols-1 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 g-4 pt-4 pb-5">
-                    {/* Render product items based on the current page */}
                     {productData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((product) => (
                         <div key={product.id} className="col d-flex justify-content-around">
                             <div className="card">
