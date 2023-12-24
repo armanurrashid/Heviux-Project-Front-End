@@ -10,6 +10,7 @@ import Women from './components/Women/Women.jsx';
 import Kids from './components/Kids/Kids.jsx';
 import OrderReview from './components/OrderReview/OrderReview.jsx';
 import MainPage from './components/MainPage/MainPage.jsx';
+import OrderHistory from './components/OrderHistory/OrderHistory.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/kids',
         element: <Kids></Kids>
+      },
+      {
+        path: '/orderhistory',
+        element: <OrderHistory></OrderHistory>
       },
       {
         path: '/productDetails',

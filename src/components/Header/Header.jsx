@@ -70,6 +70,14 @@ class Header extends Component {
               >
                 Kids
               </Link>
+            </li><li>
+              <Link
+                to="/orderhistory"
+                className={`link ${this.state.activeLink === "orderhistory" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("orderhistory")}
+              >
+                History
+              </Link>
             </li>
           </ul>
         </div>

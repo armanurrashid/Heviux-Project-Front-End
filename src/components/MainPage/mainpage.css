@@ -1,5 +1,11 @@
 /* .hero {
     background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+} */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .hero-left {
@@ -35,7 +41,7 @@
 }
 
 .hero_image {
-    height: 70%;
+    height: 100%;
 }
 
 .hero-latest-btn {
@@ -53,7 +59,9 @@
     font-weight: 500;
 }
 
-.hero-right {}
+.hero-right {
+    height: 500px;
+}
 
 .popular {
     display: flex;
@@ -113,4 +121,4 @@
     .hero-right {
         margin-top: 15px;
     }
-} */
+}

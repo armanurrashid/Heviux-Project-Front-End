@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import img from "../../images/slide-3.png";
 import filterImg from "../../images/settings-sliders.png";
+import men_banner from '../../images/banner_mens.png'
 // import {Scrollbars} from "react-custom-scrollbars"
 // Assume you have a JSON array with product data
 const productData = [
@@ -50,6 +51,9 @@ const Men = () => {
     return (
         <div>
             <div className="container py-2">
+                <div className='my-5'>
+                <img src={men_banner} className="d-block w-100" alt="..." />
+                </div>
                 <div className='d-flex pt-3 ps-3'>
                     <div className='d-flex'>
                         <img src={filterImg} alt="" id="filterImg" />
