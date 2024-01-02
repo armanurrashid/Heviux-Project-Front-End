@@ -13,6 +13,7 @@ import MainPage from './components/MainPage/MainPage.jsx';
 import OrderHistory from './components/OrderHistory/OrderHistory.jsx';
 import Login from './components/Login/Login.jsx';
 import UserList from './components/UserList/UserList.jsx';
+import ProductList from './components/ProductList/ProductList.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/userlist',
         element: <UserList />
+      },
+      {
+        path: '/productlist',
+        element: <ProductList />
       }
     ]
   }

@@ -1,8 +1,8 @@
+import { faComment, faShoppingCart, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/hev.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faComment, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import "./Header.css";
 
 class Header extends Component {
@@ -35,7 +35,7 @@ class Header extends Component {
         <img src={logo} alt="" style={{ width: "130px", height: "auto" }} />
         <div className="d-flex justify-content-center">
           <ul id="navbar" className={this.state.clicked ? "active" : ""}>
-          <li>
+            <li>
               <Link
                 to="/login"
                 className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
@@ -96,10 +96,19 @@ class Header extends Component {
                 User
               </Link>
             </li>
+            <li>
+              <Link
+                to="/productlist"
+                className={`link ${this.state.activeLink === "productlist" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("productlist")}
+              >
+                ProductList
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
-        <Link
+          <Link
             to="/orderReview"
             // className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3`}
             className="mx-3 text-white"
@@ -118,7 +127,7 @@ class Header extends Component {
           <Link
             to="/login"
             // className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3` }
-            className="mx-3 text-white" 
+            className="mx-3 text-white"
             onClick={() => this.handleLinkClick("Login")}
           >
             <FontAwesomeIcon icon={faSignOutAlt} size="lg" />
@@ -128,7 +137,7 @@ class Header extends Component {
           <i id="bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
       </nav>
-      
+
     );
   }
 }

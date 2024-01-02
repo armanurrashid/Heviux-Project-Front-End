@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import img from '../../images/p1_product.png';
-import '../ProductList/ProductList.css'
+import './ProductList.css'
 const UserData = [
     {
         id: 1,
@@ -79,7 +79,7 @@ const UserData = [
     },
 ];
 
-const UserList = () => {
+const ProductList = () => {
     const [query, setQuery] = useState("");
     return (
         <div>
@@ -143,4 +143,4 @@ const UserList = () => {
     );
 };
 
-export default UserList;
+export default ProductList;
