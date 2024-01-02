@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import img from '../../images/p1_product.png';
 import './UserList.css'
 const UserData = [
@@ -37,10 +39,17 @@ const UserList = () => {
             handlePageChange(currentPage - 1);
         }
     };
+
+    const handleRemove = (id) => {
+        const userToRemove = UserData.find((user) => user.id === id);
+        if (userToRemove) {
+          console.log(`Removing user: ${userToRemove.name}`);
+          console.log(`User ${userToRemove.name} removed successfully.`);
+        }
+      };
     return (
         <div>
             <div className="container">
-
                 <div className='mt-2'>
                     <div className="user_table_header">
                         <div className='d-flex align-items-center'>
@@ -102,7 +111,7 @@ const UserList = () => {
                                     <td className="text-center">{order.email}</td>
                                     <td className="text-center">{order.mobile}</td>
                                     <td className="text-center">{order.address}</td>
-                                    <td className="text-center">{order.action}</td>
+                                    <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemove(order.id)} /></td>
                                 </tr>
                             ))}
                         </tbody>

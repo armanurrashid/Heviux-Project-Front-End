@@ -1,5 +1,5 @@
-// import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import img from '../../images/p1_product.png';
 import './ProductList.css'
@@ -7,81 +7,122 @@ const UserData = [
     {
         id: 1,
         image: img,
-        name: 'Tamim Iqbal',
-        email: 'tamim@gmail.com',
-        mobile: '019348235457',
-        address: 'Bangladesh',
-        action: 'remove'
-        // status: 'Pending',
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 2,
         image: img,
-        name: 'Soumya Sarkar',
-        email: 'souyma@gmail.com',
-        mobile: '012348235457',
-        address: 'India',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 3,
         image: img,
-        name: 'Shakib Al Hasan',
-        email: 'shakib@gmail.com',
-        mobile: '013348235457',
-        address: 'Japan',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 4,
         image: img,
-        name: 'Nazmul Hasan',
-        email: 'nazmul@gmail.com',
-        mobile: '014348235457',
-        address: 'French',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 5,
         image: img,
-        name: 'Mushfiqur Rahim',
-        email: 'mushfiq@gmail.com',
-        mobile: '015348235457',
-        address: 'Pakistan',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 6,
         image: img,
-        name: 'Mahmudullah Riad',
-        email: 'mahmudullah@gmail.com',
-        mobile: '016348235457',
-        address: 'Australia',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 7,
         image: img,
-        name: 'Mehedi Hasan',
-        email: 'mehedi@gmail.com',
-        mobile: '017348235457',
-        address: 'SriLanka',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
     {
         id: 8,
         image: img,
-        name: 'Mashrafe Bin Mortaza',
-        email: 'mashrafe@gmail.com',
-        mobile: '018348235457',
-        address: 'Russia',
-        action: 'remove'
+        title: 'Women Skirt',
+        category: 'Female',
+        sub_category: 'Skirt',
+        fabric: 'Cotton',
+        gsm: '180',
+        price: '230',
+        description: 'Skirt styles can be figure-hugging or voluminous.'
     },
 ];
 
 const ProductList = () => {
     const [query, setQuery] = useState("");
     const [entriesPerPage, setEntriesPerPage] = useState(5);
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(UserData.length / entriesPerPage);
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            handlePageChange(currentPage + 1);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            handlePageChange(currentPage - 1);
+        }
+    };
+
+    const handleRemove = (id) => {
+        const userToRemove = UserData.find((user) => user.id === id);
+        if (userToRemove) {
+          console.log(`Removing user: ${userToRemove.name}`);
+          console.log(`User ${userToRemove.name} removed successfully.`);
+        }
+      };
     return (
         <div>
             <div className="container">
@@ -90,16 +131,16 @@ const ProductList = () => {
                         <div className='d-flex align-items-center'>
                             <h6 className='mb-0'>Show </h6>
                             <select
-                                className="form-select mx-3"
+                                className="form-select mx-2"
                                 onChange={(e) => setEntriesPerPage(parseInt(e.target.value))}
                                 value={entriesPerPage}
-                                style={{ flex: '1' }}
+                                style={{ flex: '1', fontWeight: "bold" }}
                             >
                                 <option value={5}>5</option>
                                 <option value={10}>10</option>
                                 <option value={20}>20</option>
                             </select>
-                            <h6 className='mb-0'>result per page </h6>
+                            <h6 className='mb-0'>entries </h6>
                         </div>
 
                         <div>
@@ -116,16 +157,25 @@ const ProductList = () => {
                                     Image
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '20%' }}>
-                                    Name
+                                    Title
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '20%' }}>
-                                    Email
+                                <th className="min-w-100px text-center" style={{ width: '7%' }}>
+                                    Category
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '15%' }}>
-                                    Mobile
+                                <th className="min-w-100px text-center" style={{ width: '6%' }}>
+                                    Sub_Category
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '7%' }}>
+                                    Fabric
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '5%' }}>
+                                    GSM
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
+                                    Price
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '30%' }}>
-                                    Address
+                                    Description
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Action
@@ -133,7 +183,7 @@ const ProductList = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {UserData.filter((user) =>
+                            {UserData.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage).filter((user) =>
                                 Object.values(user).some(
                                     (field) =>
                                         typeof field === 'string' && field.toLowerCase().includes(query.toLowerCase())
@@ -143,15 +193,34 @@ const ProductList = () => {
                                     <td className="text-center">
                                         <img src={order.image} width={'35px'} alt="" />
                                     </td>
-                                    <td className="text-center">{order.name}</td>
-                                    <td className="text-center">{order.email}</td>
-                                    <td className="text-center">{order.mobile}</td>
-                                    <td className="text-center">{order.address}</td>
-                                    <td className="text-center">{order.action}</td>
+                                    <td className="text-center">{order.title}</td>
+                                    <td className="text-center">{order.category}</td>
+                                    <td className="text-center">{order.sub_category}</td>
+                                    <td className="text-center">{order.fabric}</td>
+                                    <td className="text-center">{order.gsm}</td>
+                                    <td className="text-center">{order.price}</td>
+                                    <td>{order.description}</td>
+                                    <td className="text-center">
+                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemove(order.id)} />
+                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemove(order.id)} />
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                </div>
+                <div className='d-flex justify-content-end mb-2' >
+                    <ul className="pagination" >
+                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                            <a className={`page-link px-3 py-2 ${currentPage === 1 ? 'text-secondary fw-bold' : 'text-success fw-bold'}`} href="#" tabIndex="-1" onClick={handlePrevPage}>{'Prev'}</a>
+                        </li>
+                        <li className="page-item">
+                            <a className="page-link px-3 py-2 text-success" href="#">{currentPage} of {totalPages} <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className={`page-item ${currentPage >= totalPages ? 'disabled' : ''}`}>
+                            <a className={`page-link px-3 py-2 ${currentPage >= totalPages ? 'text-secondary fw-bold' : 'text-success fw-bold'}`} href="#" onClick={handleNextPage}>{'Next'}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
