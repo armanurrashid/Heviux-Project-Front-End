@@ -18,7 +18,7 @@ const productData = [
     { id: 9, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
     { id: 10, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
     { id: 11, name: 'Printed Premium Shirt', image: img, fabric: 'Cotton', gsm: 170, price: 250, },
-    { id: 12, name: 'Full Sleeve Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 170, }, 
+    { id: 12, name: 'Full Sleeve Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 170, },
     { id: 9, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
     { id: 10, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
     { id: 11, name: 'Printed Premium Shirt', image: img, fabric: 'Cotton', gsm: 170, price: 250, },
@@ -50,7 +50,7 @@ const Men = () => {
         <div>
             <div className="container py-2">
                 <div className='my-5'>
-                <img src={men_banner} className="d-block w-100" alt="..." />
+                    <img src={men_banner} className="d-block w-100" alt="..." />
                 </div>
                 <div className='d-flex pt-3 ps-3'>
                     <div className='d-flex'>
@@ -108,19 +108,19 @@ const Men = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className='d-flex justify-content-center' >
-                <ul className="pagination" >
-                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                        <a className="page-link px-3 py-2  text-success fw-bold" href="#" tabIndex="-1" onClick={handlePrevPage}>{'<<'}</a>
-                    </li>
-                    <li className="page-item">
-                        <a className="page-link px-3 py-2 text-success fw-bold" href="#">{currentPage} <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className={`page-item ${currentPage >= totalPages ? 'disabled' : ''}`}>
-                        <a className="page-link px-3 py-2 text-success fw-bold" href="#" onClick={handleNextPage}>{'>>'}</a>
-                    </li>
-                </ul>
+                <div className='d-flex justify-content-end mb-2 me-2 pages'>
+                    <ul className="pagination" >
+                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                            <a className={`page-link px-3 py-2 ${currentPage === 1 ? 'text-secondary fw-bold' : 'text-success fw-bold'}`} href="#" tabIndex="-1" onClick={handlePrevPage}>{'Prev'}</a>
+                        </li>
+                        <li className="page-item">
+                            <a className="page-link px-3 py-2 text-success" href="#">{currentPage} of {totalPages} <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className={`page-item ${currentPage >= totalPages ? 'disabled' : ''}`}>
+                            <a className={`page-link px-3 py-2 ${currentPage >= totalPages ? 'text-secondary fw-bold' : 'text-success fw-bold'}`} href="#" onClick={handleNextPage}>{'Next'}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

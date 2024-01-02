@@ -34,3 +34,15 @@ input {
     /* color: #0298cf; */
     color: #157347;
 }
+
+@media (max-width: 870px) {
+    .table_header {
+        flex-direction: column;
+    }
+    .table_header>div {
+        margin-top: 10px;
+    }
+    .table_header>div:last-child {
+        text-align: center;
+    }
+}

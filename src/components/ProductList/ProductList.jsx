@@ -81,19 +81,34 @@ const UserData = [
 
 const ProductList = () => {
     const [query, setQuery] = useState("");
+    const [entriesPerPage, setEntriesPerPage] = useState(5);
     return (
         <div>
             <div className="container">
                 <div className='mt-2'>
                     <div className="table_header">
-                        <h5></h5>
+                        <div className='d-flex align-items-center'>
+                            <h6 className='mb-0'>Show </h6>
+                            <select
+                                className="form-select mx-3"
+                                onChange={(e) => setEntriesPerPage(parseInt(e.target.value))}
+                                value={entriesPerPage}
+                                style={{ flex: '1' }}
+                            >
+                                <option value={5}>5</option>
+                                <option value={10}>10</option>
+                                <option value={20}>20</option>
+                            </select>
+                            <h6 className='mb-0'>result per page </h6>
+                        </div>
+
                         <div>
                             <input placeholder='Search User' onChange={(e) => setQuery(e.target.value)} />
                             <button className='add_new'>+ Add New</button>
                         </div>
                     </div>
                 </div>
-                <div className="table-responsive mt-3 mb-3">
+                <div className="table-responsive mt-2 mb-3">
                     <table className="table table-hover table-row-gray-300 align-middle gs-0 gy-4">
                         <thead>
                             <tr className="fw-bold text-muted">
@@ -101,7 +116,7 @@ const ProductList = () => {
                                     Image
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '20%' }}>
-                                    User Name
+                                    Name
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '20%' }}>
                                     Email
@@ -123,7 +138,7 @@ const ProductList = () => {
                                     (field) =>
                                         typeof field === 'string' && field.toLowerCase().includes(query.toLowerCase())
                                 )
-                            ).map((order) => (
+                            ).slice(0, entriesPerPage).map((order) => (
                                 <tr key={order.id}>
                                     <td className="text-center">
                                         <img src={order.image} width={'35px'} alt="" />

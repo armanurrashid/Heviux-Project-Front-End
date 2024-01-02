@@ -86,3 +86,20 @@ h4 {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #198754;
 }
+
+@media (max-width: 990px) {
+    .pages {
+        justify-content: center !important;
+        /* Use !important to override Bootstrap styles if needed */
+    }
+}
+
+
+/* For screens 768px and larger */
+
+@media (min-width: 989px) {
+    .pages {
+        justify-content: end !important;
+        /* Use !important to override Bootstrap styles if needed */
+    }
+}
