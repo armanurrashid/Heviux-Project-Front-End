@@ -71,36 +71,35 @@ const MainPage = () => {
                     </div>
                     <div className="row row-cols-1 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 g-4 pt-4 pb-5">
                         {productData.map((product) => (
-                            <div key={product.id} className="col d-flex justify-content-around mb-0">
-                                <div className="card">
-                                    <div className='d-flex justify-content-center'>
-                                        <img src={product.image} className="card-img-top" alt="..." />
-                                    </div>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{product.name}</h5>
-                                        <div className='d-flex justify-content-between'>
-                                            <div>
-                                                <p className="card-text text-muted">Fabric: {product.fabric}</p>
-                                            </div>
-                                            <div>
-                                                <p className="card-text text-muted ps-4">GSM: {product.gsm}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="d-flex justify-content-between card-body pb-0">
-                                        <div className='d-flex flex-row align-items-center'>
-                                            <h5 className='mb-0 '>€{product.price}</h5>
+                            <div key={product.id} className="col d-flex justify-content-around">
+                            <div className="card dressCard">
+                                <div className='d-flex justify-content-center'>
+                                    <img src={product.image} className="card-img-top" alt="..." />
+                                </div>
+                                <div className="card-body">
+                                    <h5 className="card-title">{product.name}</h5>
+                                    <div className='d-flex justify-content-between'>
+                                        <div>
+                                            <p className="card-text text-muted">Fabric: {product.fabric}</p>
                                         </div>
                                         <div>
-                                            <Link
-                                                to="/ProductDetails" id='viewDetails'
-                                            >Details
-                                            </Link>
-                                            {/* <a href="#" id='viewDetails'>Details</a> */}
+                                            <p className="card-text text-muted ps-4">GSM: {product.gsm}</p>
                                         </div>
                                     </div>
                                 </div>
+                                <div className="d-flex justify-content-between card-body pb-0">
+                                    <div className='d-flex flex-row align-items-center'>
+                                        <h5 className='mb-0 '>€{product.price}</h5>
+                                    </div>
+                                    <div>
+                                        <Link
+                                            to="/ProductDetails" id='viewDetails'
+                                        >Details
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
                         ))}
                     </div>
                 </div>

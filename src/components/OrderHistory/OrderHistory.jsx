@@ -1,67 +1,86 @@
 // import React from 'react';
-import './OrderHistory.css'
-import img from "../../images/p1_product.png";
+import './OrderHistory.css';
+import img from '../../images/p1_product.png';
+
+const orderHistoryData = [
+    {
+        id: 1, image: img,
+        title: 'Mens T-Shirt',
+        quantity: 2,
+        price: '€280',
+        date: '23/12/23',
+        status: 'Pending',
+    },
+    {
+        id: 2,
+        image: img,
+        title: 'Mens Jeans',
+        quantity: 1,
+        price: '€200',
+        date: '23/12/23',
+        status: 'Pending',
+    },
+    {
+        id: 3,
+        image: img,
+        title: 'Mens Polo T-Shirt',
+        quantity: 1,
+        price: '€350',
+        date: '23/12/23',
+        status: 'Delivered',
+    },
+    {
+        id: 4,
+        image: img,
+        title: 'Women Skirt',
+        quantity: 4,
+        price: '€540',
+        date: '23/12/23',
+        status: 'Delivered',
+    },
+];
+
 const OrderHistory = () => {
     return (
-        <div >
+        <div>
             <div className="container">
-                <div className='table-responsive my-5'>
-                    <table className='table  table-hover table-row-gray-300 align-middle gs-0 gy-4'>
+                <div className="table-responsive my-5">
+                    <table className="table table-hover table-row-gray-300 align-middle gs-0 gy-4">
                         <thead>
-                            <tr className='fw-bold text-muted'>
-                                <th className='min-w-100px text-center ' style={{ width: '15%' }}>
+                            <tr className="fw-bold text-muted">
+                                <th className="min-w-100px text-center" style={{ width: '15%' }}>
                                     Image
                                 </th>
-                                <th className='min-w-100px text-center ' style={{ width: '38%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '38%' }}>
                                     Title
                                 </th>
-                                <th className='min-w-100px text-center ' style={{ width: '17%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '17%' }}>
                                     Quantity
                                 </th>
-                                <th className='min-w-100px text-center ' style={{ width: '10%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Price
                                 </th>
-                                <th className='min-w-100px text-center ' style={{ width: '10%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Date
                                 </th>
-                                <th className='min-w-100px text-center ' style={{ width: '10%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Status
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                                <td className='text-center'><img src={img} width={"35px"} alt="" /></td>
-                                <td className='text-center'>Mens T-Shirt</td>
-                                <td className='text-center'>2</td>
-                                <td className="text-center">$280</td>
-                                <td className='text-center'>23/12/23</td>
-                                <td className='text-center'>Pending</td>
-                            </tr>
-                            <tr>
-                                <td className='text-center'><img src={img} width={"35px"} alt="" /></td>
-                                <td className='text-center'>Mens Jeans</td>
-                                <td className='text-center'>1</td>
-                                <td className="text-center">$200</td>
-                                <td className='text-center'>23/12/23</td>
-                                <td className='text-center'>Pending</td>
-                            </tr>
-                            <tr>
-                                <td className='text-center'><img src={img} width={"35px"} alt="" /></td>
-                                <td className='text-center'>Mens Polo T-Shirt</td>
-                                <td className='text-center'>1</td>
-                                <td className="text-center">$350</td>
-                                <td className='text-center'>23/12/23</td>
-                                <td className='text-center'>Delivered</td>
-                            </tr>
-                            <tr>
-                                <td className='text-center'><img src={img} width={"35px"} alt="" /></td>
-                                <td className='text-center'>Women Skirt</td>
-                                <td className='text-center'>4</td>
-                                <td className="text-center">$540</td>
-                                <td className='text-center'>23/12/23</td>
-                                <td className='text-center'>Delivered</td>
-                            </tr>
+                            {orderHistoryData.map((order) => (
+                                <tr key={order.id}>
+                                    <td className="text-center">
+                                        <img src={order.image} width={'35px'} alt="" />
+                                    </td>
+                                    <td className="text-center">{order.title}</td>
+                                    <td className="text-center">{order.quantity}</td>
+                                    <td className="text-center">{order.price}</td>
+                                    <td className="text-center">{order.date}</td>
+                                    <td className="text-center">{order.status}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>

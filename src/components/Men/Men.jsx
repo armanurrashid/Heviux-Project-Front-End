@@ -1,4 +1,3 @@
-// import React from 'react';
 import { useState } from 'react';
 import './Men.css';
 import { Link } from "react-router-dom";
@@ -6,8 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import img from "../../images/slide-3.png";
 import filterImg from "../../images/settings-sliders.png";
 import men_banner from '../../images/banner_mens.png'
-// import {Scrollbars} from "react-custom-scrollbars"
-// Assume you have a JSON array with product data
+
 const productData = [
     { id: 1, name: 'Classic Fit Shirt', image: img, fabric: 'Cotton', gsm: 180, price: 190, },
     { id: 2, name: 'Casual Fit Shirt', image: img, fabric: 'Cotton', gsm: 190, price: 130, },
@@ -80,7 +78,7 @@ const Men = () => {
                 <div className="row row-cols-1 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 g-4 pt-4 pb-5">
                     {productData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((product) => (
                         <div key={product.id} className="col d-flex justify-content-around">
-                            <div className="card">
+                            <div className="card dressCard">
                                 <div className='d-flex justify-content-center'>
                                     <img src={product.image} className="card-img-top" alt="..." />
                                 </div>
@@ -104,7 +102,6 @@ const Men = () => {
                                             to="/ProductDetails" id='viewDetails'
                                         >Details
                                         </Link>
-                                        {/* <a href="#" id='viewDetails'>Details</a> */}
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +110,6 @@ const Men = () => {
                 </div>
             </div>
             <div className='d-flex justify-content-center' >
-                {/* Pagination */}
                 <ul className="pagination" >
                     <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                         <a className="page-link px-3 py-2  text-success fw-bold" href="#" tabIndex="-1" onClick={handlePrevPage}>{'<<'}</a>

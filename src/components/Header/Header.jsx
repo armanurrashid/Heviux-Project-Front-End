@@ -35,6 +35,15 @@ class Header extends Component {
         <img src={logo} alt="" style={{ width: "130px", height: "auto" }} />
         <div className="d-flex justify-content-center">
           <ul id="navbar" className={this.state.clicked ? "active" : ""}>
+          <li>
+              <Link
+                to="/login"
+                className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("Login")}
+              >
+                Login
+              </Link>
+            </li>
             <li>
               <Link
                 to="/"
@@ -77,6 +86,14 @@ class Header extends Component {
                 onClick={() => this.handleLinkClick("orderhistory")}
               >
                 History
+              </Link>
+            </li><li>
+              <Link
+                to="/userlist"
+                className={`link ${this.state.activeLink === "userlist" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("userlist")}
+              >
+                User
               </Link>
             </li>
           </ul>

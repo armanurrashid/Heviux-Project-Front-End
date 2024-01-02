@@ -11,6 +11,8 @@ import Kids from './components/Kids/Kids.jsx';
 import OrderReview from './components/OrderReview/OrderReview.jsx';
 import MainPage from './components/MainPage/MainPage.jsx';
 import OrderHistory from './components/OrderHistory/OrderHistory.jsx';
+import Login from './components/Login/Login.jsx';
+import UserList from './components/UserList/UserList.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
       //   path: '/shop',
       //   element: <ProductDetails></ProductDetails>
       // },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
       {
         path: '/men',
         element: <Men></Men>,
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: '/orderReview',
         element: <OrderReview />
+      },
+      {
+        path: '/userlist',
+        element: <UserList />
       }
     ]
   }
