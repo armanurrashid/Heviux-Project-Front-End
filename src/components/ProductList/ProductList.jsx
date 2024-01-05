@@ -3,6 +3,7 @@ import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import img from '../../images/p1_product.png';
 import './ProductList.css'
+import { Link } from 'react-router-dom';
 const UserData = [
     {
         id: 1,
@@ -119,10 +120,11 @@ const ProductList = () => {
     const handleRemove = (id) => {
         const userToRemove = UserData.find((user) => user.id === id);
         if (userToRemove) {
-          console.log(`Removing user: ${userToRemove.name}`);
-          console.log(`User ${userToRemove.name} removed successfully.`);
+            console.log(`Removing user: ${userToRemove.name}`);
+            console.log(`User ${userToRemove.name} removed successfully.`);
         }
-      };
+    };
+
     return (
         <div>
             <div className="container">
@@ -144,8 +146,10 @@ const ProductList = () => {
                         </div>
 
                         <div>
-                            <input placeholder='Search User' onChange={(e) => setQuery(e.target.value)} />
-                            <button className='add_new'>+ Add New</button>
+                            <input placeholder='Search User' className='searchInput' onChange={(e) => setQuery(e.target.value)} />
+                            <Link to="/newproduct" className='btn add_new'>
+                                + Add New
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -224,6 +228,7 @@ const ProductList = () => {
                 </div>
             </div>
         </div>
+        
     );
 };
 

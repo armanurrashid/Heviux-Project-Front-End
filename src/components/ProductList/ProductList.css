@@ -12,7 +12,7 @@
 }
 
 .add_new {
-    padding: 10px20px;
+    padding: 10px 20px;
     color: #ffffff;
     background-color: #157347;
     outline: none;
@@ -21,7 +21,13 @@
     cursor: pointer;
 }
 
-input {
+.add_new:hover {
+    color: #157347;
+    background-color: #ffffff;
+    border: 1px solid #157347;
+}
+
+.searchInput {
     padding: 10px 20px;
     margin: 0 10px;
     outline: none;

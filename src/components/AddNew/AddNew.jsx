@@ -1,24 +1,13 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import img from '../../images/p1_product.png';
-import './UserList.css'
+import '../UserList/UserList.css'
+import { Link } from 'react-router-dom';
 const UserData = [
-    { id: 1, image: img, name: 'Tamim Iqbal', email: 'tamim@gmail.com', mobile: '019348235457', address: 'Bangladesh', action: 'remove' },
-    { id: 2, image: img, name: 'Soumya Sarkar', email: 'souyma@gmail.com', mobile: '012348235457', address: 'India', action: 'remove' },
-    { id: 3, image: img, name: 'Shakib Al Hasan', email: 'shakib@gmail.com', mobile: '013348235457', address: 'Japan', action: 'remove' },
-    { id: 4, image: img, name: 'Nazmul Hasan', email: 'nazmul@gmail.com', mobile: '014348235457', address: 'French', action: 'remove' },
-    { id: 5, image: img, name: 'Mushfiqur Rahim', email: 'mushfiq@gmail.com', mobile: '015348235457', address: 'Pakistan', action: 'remove' },
-    { id: 6, image: img, name: 'Mahmudullah', email: 'mahmudullah@gmail.com', mobile: '016348235457', address: 'Australia', action: 'remove' },
-    { id: 7, image: img, name: 'Mehedi Hasan', email: 'mehedi@gmail.com', mobile: '017348235457', address: 'SriLanka', action: 'remove' },
-    { id: 8, image: img, name: 'Mashrafe Mortaza', email: 'mashrafe@gmail.com', mobile: '018348235457', address: 'Russia', action: 'remove' },
-    { id: 9, image: img, name: 'Tamim Iqbal', email: 'tamim@gmail.com', mobile: '019348235457', address: 'Bangladesh', action: 'remove' },
-    { id: 10, image: img, name: 'Soumya Sarkar', email: 'souyma@gmail.com', mobile: '012348235457', address: 'India', action: 'remove' },
-    { id: 11, image: img, name: 'Shakib Al Hasan', email: 'shakib@gmail.com', mobile: '013348235457', address: 'Japan', action: 'remove' },
-    { id: 12, image: img, name: 'Nazmul Hasan', email: 'nazmul@gmail.com', mobile: '014348235457', address: 'French', action: 'remove' },
+    { id: 1, name: 'Tamim Iqbal', action: 'remove' },
 ];
 
-const UserList = () => {
+const AddNew = () => {
     const [query, setQuery] = useState("");
     const [entriesPerPage, setEntriesPerPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
@@ -43,14 +32,15 @@ const UserList = () => {
     const handleRemove = (id) => {
         const userToRemove = UserData.find((user) => user.id === id);
         if (userToRemove) {
-          console.log(`Removing user: ${userToRemove.name}`);
-          console.log(`User ${userToRemove.name} removed successfully.`);
+            console.log(`Removing user: ${userToRemove.name}`);
+            console.log(`User ${userToRemove.name} removed successfully.`);
         }
-      };
+    };
     return (
         <div>
             <div className="container">
                 <div className='mt-2'>
+                    <h3>GSM</h3>
                     <div className="user_table_header">
                         <div className='d-flex align-items-center'>
                             <h6 className='mb-0'>Show </h6>
@@ -69,6 +59,9 @@ const UserList = () => {
 
                         <div>
                             <input placeholder='Search User' className='searchInput' onChange={(e) => setQuery(e.target.value)} />
+                            <Link to="/newproduct" className='btn add_new'>
+                                + Add New
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -76,20 +69,11 @@ const UserList = () => {
                     <table className="table table-hover table-row-gray-300 align-middle gs-0 gy-4">
                         <thead>
                             <tr className="fw-bold text-muted">
-                                <th className="min-w-100px text-center" style={{ width: '5%' }}>
-                                    Image
+                                <th className="min-w-100px text-center" style={{ width: '20%' }}>
+                                    SL No
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '20%' }}>
-                                    Name
-                                </th>
-                                <th className="min-w-100px text-center" style={{ width: '20%' }}>
-                                    Email
-                                </th>
-                                <th className="min-w-100px text-center" style={{ width: '15%' }}>
-                                    Mobile
-                                </th>
-                                <th className="min-w-100px text-center" style={{ width: '30%' }}>
-                                    Address
+                                    Value
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Action
@@ -104,13 +88,8 @@ const UserList = () => {
                                 )
                             ).slice(0, entriesPerPage).map((order) => (
                                 <tr key={order.id}>
-                                    <td className="text-center">
-                                        <img src={order.image} width={'35px'} alt="" />
-                                    </td>
+                                    <td className="text-center">{order.id}</td>
                                     <td className="text-center">{order.name}</td>
-                                    <td className="text-center">{order.email}</td>
-                                    <td className="text-center">{order.mobile}</td>
-                                    <td className="text-center">{order.address}</td>
                                     <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemove(order.id)} /></td>
                                 </tr>
                             ))}
@@ -134,5 +113,4 @@ const UserList = () => {
         </div>
     );
 };
-
-export default UserList;
+export default AddNew;

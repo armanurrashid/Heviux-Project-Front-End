@@ -1,0 +1,41 @@
+.productInput {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid#157347;
+    border-radius: 6px;
+    color: #157347;
+}
+
+.saveButton {
+    width: 120px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #157347;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    color: #157347;
+    background-color: #ffffff;
+    border: 1px solid #157347;
+}
+
+.cancelButton {
+    width: 120px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #157347;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    color: #157347;
+    background-color: #ffffff;
+    border: 1px solid #157347;
+}

@@ -14,6 +14,8 @@ import OrderHistory from './components/OrderHistory/OrderHistory.jsx';
 import Login from './components/Login/Login.jsx';
 import UserList from './components/UserList/UserList.jsx';
 import ProductList from './components/ProductList/ProductList.jsx';
+import NewProduct from './components/NewProduct/NewProduct.jsx';
+import AddNew from './components/AddNew/AddNew.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: '/productlist',
         element: <ProductList />
+      },
+      {
+        path: '/newproduct',
+        element: <NewProduct />
+      },
+      {
+        path: '/addnew',
+        element: <AddNew />
       }
     ]
   }

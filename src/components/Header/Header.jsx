@@ -105,6 +105,15 @@ class Header extends Component {
                 ProductList
               </Link>
             </li>
+            <li>
+              <Link
+                to="/addnew"
+                className={`link ${this.state.activeLink === "addnew" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("addnew")}
+              >
+                AddNew
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
