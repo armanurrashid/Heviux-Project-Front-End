@@ -15,7 +15,8 @@ import Login from './components/Login/Login.jsx';
 import UserList from './components/UserList/UserList.jsx';
 import ProductList from './components/ProductList/ProductList.jsx';
 import NewProduct from './components/NewProduct/NewProduct.jsx';
-import AddNew from './components/AddNew/AddNew.jsx';
+import Category from './components/Category/Category.jsx';
+import Texttile from './components/Textile/Texttile.jsx';
 // import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
@@ -72,8 +73,12 @@ const router = createBrowserRouter([
         element: <NewProduct />
       },
       {
-        path: '/addnew',
-        element: <AddNew />
+        path: '/category',
+        element: <Category />
+      },
+      {
+        path: '/textile',
+        element: <Texttile />
       }
     ]
   }

@@ -107,11 +107,20 @@ class Header extends Component {
             </li>
             <li>
               <Link
-                to="/addnew"
-                className={`link ${this.state.activeLink === "addnew" ? "active" : ""}`}
-                onClick={() => this.handleLinkClick("addnew")}
+                to="/category"
+                className={`link ${this.state.activeLink === "category" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("category")}
               >
-                AddNew
+                Category
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/textile"
+                className={`link ${this.state.activeLink === "textile" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("textile")}
+              >
+                Textile
               </Link>
             </li>
           </ul>
@@ -119,7 +128,6 @@ class Header extends Component {
         <div>
           <Link
             to="/orderReview"
-            // className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3`}
             className="mx-3 text-white"
             onClick={() => this.handleLinkClick("Login")}
           >
@@ -128,14 +136,12 @@ class Header extends Component {
           <Link
             to="/chat"
             className="mx-3 text-white"
-            // className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3`}
             onClick={() => this.handleLinkClick("Login")}
           >
             <FontAwesomeIcon icon={faComment} size="lg" />
           </Link>
           <Link
             to="/login"
-            // className={`link ${this.state.activeLink === "Login" ? "active" : ""} mx-3` }
             className="mx-3 text-white"
             onClick={() => this.handleLinkClick("Login")}
           >
