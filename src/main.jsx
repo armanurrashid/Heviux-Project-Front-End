@@ -17,7 +17,6 @@ import ProductList from './components/ProductList/ProductList.jsx';
 import NewProduct from './components/NewProduct/NewProduct.jsx';
 import Category from './components/Category/Category.jsx';
 import Texttile from './components/Textile/Texttile.jsx';
-// import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
         path: '/',
         element: <MainPage></MainPage>
       },
-      // {
-      //   path: '/shop',
-      //   element: <ProductDetails></ProductDetails>
-      // },
       {
         path: '/login',
         element: <Login></Login>,

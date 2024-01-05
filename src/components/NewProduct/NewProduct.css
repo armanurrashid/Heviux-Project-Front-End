@@ -27,15 +27,16 @@
 .cancelButton {
     width: 120px;
     padding: 10px 20px;
-    color: #ffffff;
-    background-color: #157347;
-    border: none;
+    color: black;
+    /* background-color: #157347; */
+    border: 1px solid #157347;
+    /* border: none; */
     border-radius: 6px;
     cursor: pointer;
 }
 
 .cancelButton:hover {
-    color: #157347;
-    background-color: #ffffff;
+    color: white;
+    background-color: #759dd8;
     border: 1px solid #157347;
 }

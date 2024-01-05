@@ -9,7 +9,6 @@ class Header extends Component {
   state = { clicked: false, activeLink: "Home" };
 
   componentDidMount() {
-    // Retrieve the active link from local storage on component mount
     const activeLink = localStorage.getItem("activeLink");
     if (activeLink) {
       this.setState({ activeLink });
@@ -17,7 +16,6 @@ class Header extends Component {
   }
 
   componentDidUpdate() {
-    // Update local storage with the active link on component update
     localStorage.setItem("activeLink", this.state.activeLink);
   }
 
