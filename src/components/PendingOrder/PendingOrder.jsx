@@ -1,101 +1,74 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import img from '../../images/p1_product.png';
-import './ProductList.css'
-import { Link } from 'react-router-dom';
+import '../ProductList/ProductList.css'
+// import { Link } from 'react-router-dom';
 const UserData = [
     {
         id: 1,
         image: img,
         title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
+        quantity: '1',
+        size: 'S',
+        name: 'Arman',
+        phone: '01829475432',
+        address: 'Bangladesh',
+        date: '06-Jan-2024',
+        price: '$125',
     },
     {
         id: 2,
         image: img,
         title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
+        quantity: '4',
+        size: 'M',
+        name: 'Rashid',
+        phone: '01829475432',
+        address: 'Bangladesh',
+        date: '06-Jan-2024',
+        price: '$125',
     },
     {
         id: 3,
         image: img,
         title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
+        quantity: '4',
+        size: 'M',
+        name: 'Rashid',
+        phone: '01829475432',
+        address: 'Bangladesh',
+        date: '06-Jan-2024',
+        price: '$125',
     },
     {
         id: 4,
         image: img,
         title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
+        quantity: '4',
+        size: 'M',
+        name: 'Rashid',
+        phone: '01829475432',
+        address: 'Bangladesh',
+        date: '06-Jan-2024',
+        price: '$125',
     },
     {
         id: 5,
         image: img,
         title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
+        quantity: '4',
+        size: 'M',
+        name: 'Rashid',
+        phone: '01829475432',
+        address: 'Bangladesh',
+        date: '06-Jan-2024',
+        price: '$125',
     },
-    {
-        id: 6,
-        image: img,
-        title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
-    },
-    {
-        id: 7,
-        image: img,
-        title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
-    },
-    {
-        id: 8,
-        image: img,
-        title: 'Women Skirt',
-        category: 'Female',
-        sub_category: 'Skirt',
-        fabric: 'Cotton',
-        gsm: '180',
-        price: '230',
-        description: 'Skirt styles can be figure-hugging or voluminous.'
-    },
+
 ];
 
-const ProductList = () => {
+const PendingOrder = () => {
     const [query, setQuery] = useState("");
     const [entriesPerPage, setEntriesPerPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
@@ -117,13 +90,13 @@ const ProductList = () => {
         }
     };
 
-    const handleRemove = (id) => {
-        const userToRemove = UserData.find((user) => user.id === id);
-        if (userToRemove) {
-            console.log(`Removing user: ${userToRemove.name}`);
-            console.log(`User ${userToRemove.name} removed successfully.`);
-        }
-    };
+    // const handleRemove = (id) => {
+    //     const userToRemove = UserData.find((user) => user.id === id);
+    //     if (userToRemove) {
+    //         console.log(`Removing user: ${userToRemove.name}`);
+    //         console.log(`User ${userToRemove.name} removed successfully.`);
+    //     }
+    // };
 
     return (
         <div>
@@ -144,12 +117,13 @@ const ProductList = () => {
                             </select>
                             <h6 className='mb-0'>entries </h6>
                         </div>
+                        <div><h4>Pending Orders</h4></div>
 
                         <div className='d-flex flex-row' >
                             <input placeholder='Search' className='searchInput' onChange={(e) => setQuery(e.target.value)} />
-                            <Link to="/newproduct" className='btn add_new'>
+                            {/* <Link to="/newproduct" className='btn add_new'>
                                 + Add New
-                            </Link>
+                            </Link> */}
                         </div>
 
                     </div>
@@ -161,26 +135,29 @@ const ProductList = () => {
                                 <th className="min-w-100px text-center" style={{ width: '5%' }}>
                                     Image
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '20%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Title
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '7%' }}>
-                                    Category
-                                </th>
-                                <th className="min-w-100px text-center" style={{ width: '6%' }}>
-                                    Sub_Category
-                                </th>
-                                <th className="min-w-100px text-center" style={{ width: '7%' }}>
-                                    Fabric
+                                <th className="min-w-100px text-center" style={{ width: '5%' }}>
+                                    Quantity
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '5%' }}>
-                                    GSM
+                                    Size
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '15%' }}>
+                                    Name
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '10%' }}>
-                                    Price
+                                    Phone
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '30%' }}>
-                                    Description
+                                <th className="min-w-100px text-center" style={{ width: '25%' }}>
+                                    Address
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
+                                    Date
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '5%' }}>
+                                    Price
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Action
@@ -199,15 +176,18 @@ const ProductList = () => {
                                         <img src={order.image} width={'35px'} alt="" />
                                     </td>
                                     <td className="text-center">{order.title}</td>
-                                    <td className="text-center">{order.category}</td>
-                                    <td className="text-center">{order.sub_category}</td>
-                                    <td className="text-center">{order.fabric}</td>
-                                    <td className="text-center">{order.gsm}</td>
+                                    <td className="text-center">{order.quantity}</td>
+                                    <td className="text-center">{order.size}</td>
+                                    <td className="text-center">{order.name}</td>
+                                    <td className="text-center">{order.phone}</td>
+                                    <td className="text-center">{order.address}</td>
+                                    <td className="text-center">{order.date}</td>
                                     <td className="text-center">{order.price}</td>
-                                    <td>{order.description}</td>
+                                    {/* <td>{order.date}</td> */}
                                     <td className="text-center">
-                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemove(order.id)} />
-                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemove(order.id)} />
+                                        <button className='add_new'>Delivered</button>
+                                        {/* <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemove(order.id)} /> */}
+                                        {/* <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemove(order.id)} /> */}
                                     </td>
                                 </tr>
                             ))}
@@ -215,7 +195,7 @@ const ProductList = () => {
                     </table>
                 </div>
                 <div className='d-flex justify-content-end mb-2' >
-                {totalPages>1?
+                    {totalPages>1?
                         <ul className="pagination" >
                         <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                             <a className={`page-link px-3 py-2 ${currentPage === 1 ? 'text-secondary fw-bold' : 'text-success fw-bold'}`} href="#" tabIndex="-1" onClick={handlePrevPage}>{'Prev'}</a>
@@ -228,6 +208,7 @@ const ProductList = () => {
                         </li>
                     </ul> : null
                     }
+                    
                 </div>
             </div>
         </div>
@@ -235,4 +216,4 @@ const ProductList = () => {
     );
 };
 
-export default ProductList;
+export default PendingOrder;

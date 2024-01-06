@@ -17,6 +17,10 @@ import ProductList from './components/ProductList/ProductList.jsx';
 import NewProduct from './components/NewProduct/NewProduct.jsx';
 import Category from './components/Category/Category.jsx';
 import Texttile from './components/Textile/Texttile.jsx';
+import PendingOrder from './components/PendingOrder/PendingOrder.jsx';
+import DeliveredOrder from './components/DeliveredOrder/DeliveredOrder.jsx';
+import Discount from './components/Discount/Discount.jsx';
+// import Discount from '@mui/icons-material';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +78,18 @@ const router = createBrowserRouter([
       {
         path: '/textile',
         element: <Texttile />
+      },
+      {
+        path: '/pendingOrder',
+        element: <PendingOrder />
+      },
+      {
+        path: '/deliveredOrder',
+        element: <DeliveredOrder />
+      },
+      {
+        path: '/discount',
+        element: <Discount />
       }
     ]
   }

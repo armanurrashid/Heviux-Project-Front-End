@@ -161,7 +161,7 @@ const NewProduct = () => {
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/productlist" className='btn cancelButton'>
+                                <Link to="/productlist" className='btn btn-danger cancelButton'>
                                     Cancel
                                 </Link>
                             </div>

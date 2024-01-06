@@ -65,10 +65,11 @@ body {
     border: none;
 }
 
-h3,
+
+/* h3,
 h4 {
     color: rgb(0, 91, 228);
-}
+} */
 
 ::-webkit-scrollbar {
     width: 6px;

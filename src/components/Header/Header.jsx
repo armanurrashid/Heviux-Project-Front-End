@@ -33,7 +33,7 @@ class Header extends Component {
         <img src={logo} alt="" style={{ width: "130px", height: "auto" }} />
         <div className="d-flex justify-content-center">
           <ul id="navbar" className={this.state.clicked ? "active" : ""}>
-            <li>
+            {/* <li>
               <Link
                 to="/login"
                 className={`link ${this.state.activeLink === "Login" ? "active" : ""}`}
@@ -41,8 +41,8 @@ class Header extends Component {
               >
                 Login
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link
                 to="/"
                 className={`link ${this.state.activeLink === "Home" ? "active" : ""}`}
@@ -50,8 +50,8 @@ class Header extends Component {
               >
                 Home
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link
                 to="/men"
                 className={`link ${this.state.activeLink === "Men" ? "active" : ""}`}
@@ -59,8 +59,8 @@ class Header extends Component {
               >
                 Men
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link
                 to="/women"
                 className={`link ${this.state.activeLink === "Women" ? "active" : ""}`}
@@ -68,8 +68,8 @@ class Header extends Component {
               >
                 Women
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link
                 to="/kids"
                 className={`link ${this.state.activeLink === "Kids" ? "active" : ""}`}
@@ -77,7 +77,8 @@ class Header extends Component {
               >
                 Kids
               </Link>
-            </li><li>
+            </li> */}
+            <li>
               <Link
                 to="/orderhistory"
                 className={`link ${this.state.activeLink === "orderhistory" ? "active" : ""}`}
@@ -119,6 +120,33 @@ class Header extends Component {
                 onClick={() => this.handleLinkClick("textile")}
               >
                 Textile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/pendingOrder"
+                className={`link ${this.state.activeLink === "pendingOrder" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("pendingOrder")}
+              >
+                Pending
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/deliveredOrder"
+                className={`link ${this.state.activeLink === "deliveredOrder" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("deliveredOrder")}
+              >
+                Delivered
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/discount"
+                className={`link ${this.state.activeLink === "discount" ? "active" : ""}`}
+                onClick={() => this.handleLinkClick("discount")}
+              >
+                Discount
               </Link>
             </li>
           </ul>
