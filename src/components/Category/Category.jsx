@@ -1,15 +1,34 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import '../UserList/UserList.css'
-import { Link } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
 const categoryData = [
- { id: 1, name: 'Men', action: 'remove' }, { id: 2, name: 'Women', action: 'remove' }, { id: 3, name: 'Kids', action: 'remove' },
+    { id: 1, name: 'Men', action: 'remove' }, { id: 2, name: 'Women', action: 'remove' }, { id: 3, name: 'Kids', action: 'remove' },
 ];
 const subCategoryData = [
- { id: 1, name: 'Shirt', action: 'remove' }, { id: 2, name: 'Jeans', action: 'remove' }, { id: 3, name: 'T-Shirt', action: 'remove' },
+    { id: 1, name: 'Shirt', action: 'remove' }, { id: 2, name: 'Jeans', action: 'remove' }, { id: 3, name: 'T-Shirt', action: 'remove' },
 ];
 
 const Category = () => {
+
+    const [showCategoryModal, setShowCategoryModal] = useState(false);
+    const [showSubCategoryModal, setShowSubCategoryModal] = useState(false);
+
+    const handleClose = () => {
+        setShowCategoryModal(false);
+        setShowSubCategoryModal(false);
+    };
+
+    const handleShow = (modalType) => {
+        if (modalType === "category") {
+            setShowCategoryModal(true);
+        } else if (modalType === "subCategory") {
+            setShowSubCategoryModal(true);
+        }
+    };
 
     const handleRemove = (id) => {
         const userToRemove = categoryData.find((user) => user.id === id);
@@ -27,9 +46,19 @@ const Category = () => {
                             <h2>Category</h2>
                         </div>
                         <div>
-                            <Link to="/newproduct" className='btn add_new'>
-                                + Add New
-                            </Link>
+                            <a className='btn add_new' onClick={() => handleShow("category")}>
+                                +Add New
+                            </a>
+                            <Modal show={showCategoryModal} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Add New Category</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body><input type="text" className="form-control productInput mx-0 mt-2" id="newCategory" placeholder="Add New Category" /></Modal.Body>
+                                <Modal.Footer>
+                                    <button type="button" className="btn btn-success" onClick={handleClose}>Save</button>
+                                    <button type="button" className="btn btn-danger" onClick={handleClose}>Cancel</button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
                     </div>
                 </div>
@@ -61,9 +90,19 @@ const Category = () => {
                             <h2>Sub_Category</h2>
                         </div>
                         <div>
-                            <Link to="/newproduct" className='btn add_new'>
-                                + Add New
-                            </Link>
+                            <a className='btn add_new' onClick={() => handleShow("subCategory")}>
+                                +Add New
+                            </a>
+                            <Modal show={showSubCategoryModal} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Add New Sub_Category</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body><input type="text" className="form-control productInput mx-0 mt-2" id="newSubCategory" placeholder="Add New Sub_Category" /></Modal.Body>
+                                <Modal.Footer>
+                                    <button type="button" className="btn btn-success" onClick={handleClose}>Save</button>
+                                    <button type="button" className="btn btn-danger" onClick={handleClose}>Cancel</button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
                     </div>
                 </div>

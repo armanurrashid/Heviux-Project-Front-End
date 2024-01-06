@@ -3,7 +3,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 // import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import '../UserList/UserList.css'
 // const fabricOptions = [
@@ -24,10 +24,21 @@ const gsmOptions = [
 
 const Textile = () => {
 
-    const [show, setShow] = useState(false);
+    const [fabricModal, setfabricModal] = useState(false);
+    const [gsmModal, setgsmModal] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => {
+        setfabricModal(false);
+        setgsmModal(false);
+    };
+
+    const handleShow = (modalType) => {
+        if (modalType === "fabric") {
+            setfabricModal(true);
+        } else if (modalType === "gsm") {
+            setgsmModal(true);
+        }
+    };
 
     const handleRemoveFabric = (id) => {
         const fabricToRemove = fabricOptions.find((fabric) => fabric.id === id);
@@ -52,10 +63,10 @@ const Textile = () => {
                             <h2>Fabric</h2>
                         </div>
                         <div>
-                            <a className='btn add_new' onClick={handleShow}>
+                            <a className='btn add_new' onClick={() => handleShow("fabric")}>
                                 +Add New
                             </a>
-                            <Modal show={show} onHide={handleClose}>
+                            <Modal show={fabricModal} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New Fabric</Modal.Title>
                                 </Modal.Header>
@@ -96,10 +107,10 @@ const Textile = () => {
                             <h2>GSM</h2>
                         </div>
                         <div>
-                            <a className='btn add_new' onClick={handleShow}>
+                            <a className='btn add_new' onClick={() => handleShow("gsm")}>
                                 +Add New
                             </a>
-                            <Modal show={show} onHide={handleClose}>
+                            <Modal show={gsmModal} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New GSM</Modal.Title>
                                 </Modal.Header>
