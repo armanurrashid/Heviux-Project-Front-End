@@ -1,24 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import '../UserList/UserList.css'
+import { useState } from 'react';
+// import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
+
+import '../UserList/UserList.css'
 // const fabricOptions = [
 //     { value: 'cotton', label: 'Cotton' }, { value: 'chiffon', label: 'Chiffon' }, { value: 'denim', label: 'Denim' },
 //     { value: 'linen', label: 'Linen' }, { value: 'silk', label: 'Silk' }, { value: 'wool', label: 'Wool' }, { value: 'polyester', label: 'Polyester' },
 // ];
 const fabricOptions = [
- { id: 1, value: 'Cotton', action: 'remove' }, { id: 2, value: 'Chiffon', action: 'remove' }, { id: 3, value: 'Denim', action: 'remove' },
- { id: 4, value: 'Linen', action: 'remove' }, { id: 5, value: 'Silk', action: 'remove' }, { id: 6, value: 'Wool', action: 'remove' },
- { id: 7, value: 'Polyester', action: 'remove' },
+    { id: 1, value: 'Cotton', action: 'remove' }, { id: 2, value: 'Chiffon', action: 'remove' }, { id: 3, value: 'Denim', action: 'remove' },
+    { id: 4, value: 'Linen', action: 'remove' }, { id: 5, value: 'Silk', action: 'remove' }, { id: 6, value: 'Wool', action: 'remove' },
+    { id: 7, value: 'Polyester', action: 'remove' },
 ];
 const gsmOptions = [
- { id: 1, value: '140', action: 'remove' }, { id: 2, value: '150', action: 'remove' }, { id: 3, value: '160', action: 'remove' },
- { id: 4, value: '170', action: 'remove' }, { id: 5, value: '180', action: 'remove' }, { id: 6, value: '190', action: 'remove' },
- { id: 7, value: '200', action: 'remove' }, { id: 8, value: '210', action: 'remove' }, { id: 9, value: '220', action: 'remove' },
- { id: 10, value: '230', action: 'remove' }, { id: 11, value: '240', action: 'remove' }, { id: 12, value: '250', action: 'remove' },
+    { id: 1, value: '140', action: 'remove' }, { id: 2, value: '150', action: 'remove' }, { id: 3, value: '160', action: 'remove' },
+    { id: 4, value: '170', action: 'remove' }, { id: 5, value: '180', action: 'remove' }, { id: 6, value: '190', action: 'remove' },
+    { id: 7, value: '200', action: 'remove' }, { id: 8, value: '210', action: 'remove' }, { id: 9, value: '220', action: 'remove' },
+    { id: 10, value: '230', action: 'remove' }, { id: 11, value: '240', action: 'remove' }, { id: 12, value: '250', action: 'remove' },
 ];
 
 const Textile = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleRemoveFabric = (id) => {
         const fabricToRemove = fabricOptions.find((fabric) => fabric.id === id);
@@ -43,9 +52,19 @@ const Textile = () => {
                             <h2>Fabric</h2>
                         </div>
                         <div>
-                            <Link to="/newproduct" className='btn add_new'>
-                                + Add New
-                            </Link>
+                            <a className='btn add_new' onClick={handleShow}>
+                                +Add New
+                            </a>
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Add New Fabric</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body><input type="text" className="form-control productInput mx-0 mt-2" id="newFabric" placeholder="Add New Fabric" /></Modal.Body>
+                                <Modal.Footer>
+                                    <button type="button" className="btn btn-success" onClick={handleClose}>Save</button>
+                                    <button type="button" className="btn btn-danger" onClick={handleClose}>Cancel</button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
                     </div>
                 </div>
@@ -77,9 +96,19 @@ const Textile = () => {
                             <h2>GSM</h2>
                         </div>
                         <div>
-                            <Link to="/newproduct" className='btn add_new'>
-                                + Add New
-                            </Link>
+                            <a className='btn add_new' onClick={handleShow}>
+                                +Add New
+                            </a>
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Add New GSM</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body><input type="number" className="form-control productInput mx-0 mt-2" id="newGSM" placeholder="Add New GSM" /></Modal.Body>
+                                <Modal.Footer>
+                                    <button type="button" className="btn btn-success" onClick={handleClose}>Save</button>
+                                    <button type="button" className="btn btn-danger" onClick={handleClose}>Cancel</button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
                     </div>
                 </div>
@@ -97,7 +126,7 @@ const Textile = () => {
                                 <tr key={gsm.id}>
                                     <td className="text-center">{gsm.id}</td>
                                     <td className="text-center">{gsm.value}</td>
-                                    <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemoveGSM(gsm.id)} /></td>
+                                    <td className="text-center"><FontAwesomeIcon className='btn btn-danger' icon={faTimes} onClick={() => handleRemoveGSM(gsm.id)} /></td>
                                 </tr>
                             ))}
                         </tbody>
