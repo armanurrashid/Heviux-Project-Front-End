@@ -7,6 +7,7 @@ const orderHistoryData = [
         id: 1, image: img,
         title: 'Mens T-Shirt',
         quantity: 2,
+        size:"M",
         price: '€280',
         date: '23/12/23',
         status: 'Pending',
@@ -16,6 +17,7 @@ const orderHistoryData = [
         image: img,
         title: 'Mens Jeans',
         quantity: 1,
+        size:"M",
         price: '€200',
         date: '23/12/23',
         status: 'Pending',
@@ -25,6 +27,7 @@ const orderHistoryData = [
         image: img,
         title: 'Mens Polo T-Shirt',
         quantity: 1,
+        size:"M",
         price: '€350',
         date: '23/12/23',
         status: 'Delivered',
@@ -34,6 +37,7 @@ const orderHistoryData = [
         image: img,
         title: 'Women Skirt',
         quantity: 4,
+        size:"M",
         price: '€540',
         date: '23/12/23',
         status: 'Delivered',
@@ -51,11 +55,14 @@ const OrderHistory = () => {
                                 <th className="min-w-100px text-center" style={{ width: '15%' }}>
                                     Image
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '38%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '35%' }}>
                                     Title
                                 </th>
-                                <th className="min-w-100px text-center" style={{ width: '17%' }}>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Quantity
+                                </th>
+                                <th className="min-w-100px text-center" style={{ width: '10%' }}>
+                                    Size
                                 </th>
                                 <th className="min-w-100px text-center" style={{ width: '10%' }}>
                                     Price
@@ -76,6 +83,7 @@ const OrderHistory = () => {
                                     </td>
                                     <td className="text-center">{order.title}</td>
                                     <td className="text-center">{order.quantity}</td>
+                                    <td className="text-center">{order.size}</td>
                                     <td className="text-center">{order.price}</td>
                                     <td className="text-center">{order.date}</td>
                                     <td className="text-center">{order.status}</td>

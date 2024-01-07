@@ -66,7 +66,7 @@ const Textile = () => {
                             <a className='btn add_new' onClick={() => handleShow("fabric")}>
                                 +Add New
                             </a>
-                            <Modal show={fabricModal} onHide={handleClose}>
+                            <Modal show={fabricModal} onHide={handleClose} backdrop="static" keyboard={false}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New Fabric</Modal.Title>
                                 </Modal.Header>
@@ -110,7 +110,7 @@ const Textile = () => {
                             <a className='btn add_new' onClick={() => handleShow("gsm")}>
                                 +Add New
                             </a>
-                            <Modal show={gsmModal} onHide={handleClose}>
+                            <Modal show={gsmModal} onHide={handleClose} backdrop="static" keyboard={false}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New GSM</Modal.Title>
                                 </Modal.Header>

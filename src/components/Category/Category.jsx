@@ -49,7 +49,7 @@ const Category = () => {
                             <a className='btn add_new' onClick={() => handleShow("category")}>
                                 +Add New
                             </a>
-                            <Modal show={showCategoryModal} onHide={handleClose}>
+                            <Modal show={showCategoryModal} onHide={handleClose} backdrop="static" keyboard={false}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New Category</Modal.Title>
                                 </Modal.Header>
@@ -90,10 +90,10 @@ const Category = () => {
                             <h2>Sub_Category</h2>
                         </div>
                         <div>
-                            <a className='btn add_new' onClick={() => handleShow("subCategory")}>
+                            <a className='btn add_new' onClick={() => handleShow("subCategory")} >
                                 +Add New
                             </a>
-                            <Modal show={showSubCategoryModal} onHide={handleClose}>
+                            <Modal show={showSubCategoryModal} onHide={handleClose} backdrop="static" keyboard={false}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Add New Sub_Category</Modal.Title>
                                 </Modal.Header>

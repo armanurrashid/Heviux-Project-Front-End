@@ -42,7 +42,7 @@ class Header extends Component {
                 Login
               </Link>
             </li> */}
-            {/* <li>
+            <li>
               <Link
                 to="/"
                 className={`link ${this.state.activeLink === "Home" ? "active" : ""}`}
@@ -50,8 +50,8 @@ class Header extends Component {
               >
                 Home
               </Link>
-            </li> */}
-            {/* <li>
+            </li>
+            <li>
               <Link
                 to="/men"
                 className={`link ${this.state.activeLink === "Men" ? "active" : ""}`}
@@ -59,8 +59,8 @@ class Header extends Component {
               >
                 Men
               </Link>
-            </li> */}
-            {/* <li>
+            </li>
+            <li>
               <Link
                 to="/women"
                 className={`link ${this.state.activeLink === "Women" ? "active" : ""}`}
@@ -68,8 +68,8 @@ class Header extends Component {
               >
                 Women
               </Link>
-            </li> */}
-            {/* <li>
+            </li>
+            <li>
               <Link
                 to="/kids"
                 className={`link ${this.state.activeLink === "Kids" ? "active" : ""}`}
@@ -77,7 +77,7 @@ class Header extends Component {
               >
                 Kids
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link
                 to="/orderhistory"
@@ -101,7 +101,7 @@ class Header extends Component {
                 className={`link ${this.state.activeLink === "productlist" ? "active" : ""}`}
                 onClick={() => this.handleLinkClick("productlist")}
               >
-                ProductList
+                Product
               </Link>
             </li>
             <li>
@@ -159,13 +159,13 @@ class Header extends Component {
           >
             <FontAwesomeIcon icon={faShoppingCart} size="lg" />
           </Link>
-          <Link
+          {/* <Link
             to="/chat"
             className="mx-3 text-white"
             onClick={() => this.handleLinkClick("Login")}
           >
             <FontAwesomeIcon icon={faComment} size="lg" />
-          </Link>
+          </Link> */}
           <Link
             to="/login"
             className="mx-3 text-white"
