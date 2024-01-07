@@ -1,15 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// import { Link } from 'react-router-dom';
 
 import '../UserList/UserList.css'
-// const fabricOptions = [
-//     { value: 'cotton', label: 'Cotton' }, { value: 'chiffon', label: 'Chiffon' }, { value: 'denim', label: 'Denim' },
-//     { value: 'linen', label: 'Linen' }, { value: 'silk', label: 'Silk' }, { value: 'wool', label: 'Wool' }, { value: 'polyester', label: 'Polyester' },
-// ];
+
 const fabricOptions = [
     { id: 1, value: 'Cotton', action: 'remove' }, { id: 2, value: 'Chiffon', action: 'remove' }, { id: 3, value: 'Denim', action: 'remove' },
     { id: 4, value: 'Linen', action: 'remove' }, { id: 5, value: 'Silk', action: 'remove' }, { id: 6, value: 'Wool', action: 'remove' },
@@ -23,7 +18,9 @@ const gsmOptions = [
 ];
 
 const Textile = () => {
-
+    const [fabricentriesPerPage, setFabricEntriesPerPage] = useState(5);
+    const [gsmentriesPerPage, setGsmEntriesPerPage] = useState(5);
+    // const totalPages = Math.ceil(fabricOptions.length / entriesPerPage);
     const [fabricModal, setfabricModal] = useState(false);
     const [gsmModal, setgsmModal] = useState(false);
 
@@ -56,13 +53,27 @@ const Textile = () => {
     };
     return (
         <div>
-            <div className="container card my-5">
+            <div className="container my-3">
                 <div className='mb-2 mx-3'>
                     <div className="user_table_header">
                         <div className="d-flex align-items-center" >
-                            <h2>Fabric</h2>
+                            <h3>Fabric</h3>
                         </div>
-                        <div>
+                        <div className='d-flex'>
+                            <div className='d-flex align-items-center mx-5'>
+                                <h6 className='mb-0'>Show </h6>
+                                <select
+                                    className="form-select mx-2"
+                                    onChange={(e) => setFabricEntriesPerPage(parseInt(e.target.value))}
+                                    value={fabricentriesPerPage}
+                                    style={{ flex: '1', fontWeight: "bold" }}
+                                >
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>20</option>
+                                </select>
+                                <h6 className='mb-0'>entries </h6>
+                            </div>
                             <a className='btn add_new' onClick={() => handleShow("fabric")}>
                                 +Add New
                             </a>
@@ -89,24 +100,43 @@ const Textile = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {fabricOptions.map((fabric) => (
+                            {fabricOptions.slice(0, fabricentriesPerPage).map((fabric) => (
                                 <tr key={fabric.id}>
                                     <td className="text-center">{fabric.id}</td>
                                     <td className="text-center">{fabric.value}</td>
-                                    <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemoveFabric(fabric.id)} /></td>
+                                    {/* <td className="text-center"> */}
+                                    <td className="text-center">
+                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemoveFabric(fabric.id)} />
+                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemoveFabric(fabric.id)} />
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div className="container card my-5">
+            <div className="container my-5">
                 <div className='mb-2 mx-3'>
                     <div className="user_table_header">
-                        <div className="d-flex align-items-center" >
-                            <h2>GSM</h2>
+                    <div className="d-flex align-items-center" >
+                            <h3>GSM</h3>
                         </div>
-                        <div>
+                        
+                        <div className='d-flex'>
+                        <div className='d-flex align-items-center mx-5'>
+                            <h6 className='mb-0'>Show </h6>
+                            <select
+                                className="form-select mx-2"
+                                onChange={(e) => setGsmEntriesPerPage(parseInt(e.target.value))}
+                                value={gsmentriesPerPage}
+                                style={{ flex: '1', fontWeight: "bold" }}
+                            >
+                                <option value={5}>5</option>
+                                <option value={10}>10</option>
+                                <option value={20}>20</option>
+                            </select>
+                            <h6 className='mb-0'>entries </h6>
+                        </div>
                             <a className='btn add_new' onClick={() => handleShow("gsm")}>
                                 +Add New
                             </a>
@@ -133,11 +163,14 @@ const Textile = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {gsmOptions.map((gsm) => (
+                            {gsmOptions.slice(0, gsmentriesPerPage).map((gsm) => (
                                 <tr key={gsm.id}>
                                     <td className="text-center">{gsm.id}</td>
                                     <td className="text-center">{gsm.value}</td>
-                                    <td className="text-center"><FontAwesomeIcon className='btn btn-danger' icon={faTimes} onClick={() => handleRemoveGSM(gsm.id)} /></td>
+                                    <td className="text-center">
+                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemoveGSM(gsm.id)} />
+                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemoveGSM(gsm.id)} />
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import '../UserList/UserList.css'
 import Modal from 'react-bootstrap/Modal';
@@ -13,7 +13,8 @@ const subCategoryData = [
 ];
 
 const Category = () => {
-
+    const [categoryentriesPerPage, setCategoryEntriesPerPage] = useState(5);
+    const [subcategoryentriesPerPage, setSubcategoryEntriesPerPage] = useState(5);
     const [showCategoryModal, setShowCategoryModal] = useState(false);
     const [showSubCategoryModal, setShowSubCategoryModal] = useState(false);
 
@@ -39,13 +40,27 @@ const Category = () => {
     };
     return (
         <div>
-            <div className="container card my-5">
+            <div className="container my-3">
                 <div className='mb-2 mx-3'>
                     <div className="user_table_header">
                         <div className="d-flex align-items-center" >
-                            <h2>Category</h2>
+                            <h3>Category</h3>
                         </div>
-                        <div>
+                        <div className='d-flex'>
+                            <div className='d-flex align-items-center mx-5'>
+                                <h6 className='mb-0'>Show </h6>
+                                <select
+                                    className="form-select mx-2"
+                                    onChange={(e) => setCategoryEntriesPerPage(parseInt(e.target.value))}
+                                    value={categoryentriesPerPage}
+                                    style={{ flex: '1', fontWeight: "bold" }}
+                                >
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>20</option>
+                                </select>
+                                <h6 className='mb-0'>entries </h6>
+                            </div>
                             <a className='btn add_new' onClick={() => handleShow("category")}>
                                 +Add New
                             </a>
@@ -62,7 +77,7 @@ const Category = () => {
                         </div>
                     </div>
                 </div>
-                <div className="table-responsive mt-4 mb-3">
+                <div className="table-responsive mt-2 mb-3">
                     <table className="table table-hover table-row-gray-300 align-middle gs-0 gy-4">
                         <thead>
                             <tr className="fw-bold text-muted">
@@ -76,20 +91,37 @@ const Category = () => {
                                 <tr key={category.id}>
                                     <td className="text-center">{category.id}</td>
                                     <td className="text-center">{category.name}</td>
-                                    <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemove(category.id)} /></td>
+                                    <td className="text-center">
+                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemove(category.id)} />
+                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemove(category.id)} />
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div className="container card my-5">
+            <div className="container my-5">
                 <div className='mb-2 mx-3'>
                     <div className="user_table_header">
                         <div className="d-flex align-items-center" >
-                            <h2>Sub_Category</h2>
+                            <h3>Sub_Category</h3>
                         </div>
-                        <div>
+                        <div className='d-flex'>
+                            <div className='d-flex align-items-center mx-5'>
+                                <h6 className='mb-0'>Show </h6>
+                                <select
+                                    className="form-select mx-2"
+                                    onChange={(e) => setSubcategoryEntriesPerPage(parseInt(e.target.value))}
+                                    value={subcategoryentriesPerPage}
+                                    style={{ flex: '1', fontWeight: "bold" }}
+                                >
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>20</option>
+                                </select>
+                                <h6 className='mb-0'>entries </h6>
+                            </div>
                             <a className='btn add_new' onClick={() => handleShow("subCategory")} >
                                 +Add New
                             </a>
@@ -106,7 +138,7 @@ const Category = () => {
                         </div>
                     </div>
                 </div>
-                <div className="table-responsive mt-4 mb-3">
+                <div className="table-responsive mt-2 mb-3">
                     <table className="table table-hover table-row-gray-300 align-middle gs-0 gy-4">
                         <thead>
                             <tr className="fw-bold text-muted">
@@ -120,7 +152,10 @@ const Category = () => {
                                 <tr key={subCategory.id}>
                                     <td className="text-center">{subCategory.id}</td>
                                     <td className="text-center">{subCategory.name}</td>
-                                    <td className="text-center"><FontAwesomeIcon className=' btn btn-danger' icon={faTimes} onClick={() => handleRemove(subCategory.id)} /></td>
+                                    <td className="text-center">
+                                        <FontAwesomeIcon className='btn text-primary' icon={faEdit} onClick={() => handleRemove(subCategory.id)} />
+                                        <FontAwesomeIcon className='btn text-danger' icon={faTimes} onClick={() => handleRemove(subCategory.id)} />
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

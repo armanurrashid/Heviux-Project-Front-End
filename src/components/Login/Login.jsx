@@ -1,75 +1,100 @@
-export default function Login() {
+import { useState, useEffect } from "react";
+import img from '../../images/p1_product.png';
+import { Link } from "react-router-dom";
+
+function Login() {
+    const initialValues = { email: "", password: "" };
+    const [formValues, setFormValues] = useState(initialValues);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
+    };
+
+    useEffect(() => {
+        console.log(formErrors);
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValues);
+        }
+    }, [formErrors]);
+    const validate = (values) => {
+        const errors = {};
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        if (!values.email) {
+            errors.email = "Email is required!";
+        } else if (!regex.test(values.email)) {
+            errors.email = "This is not a valid email format!";
+        }
+        if (!values.password) {
+            errors.password = "Password is required!";
+        } else if (values.password.length < 4) {
+            errors.password = "Password must be more than 4 characters";
+        } else if (values.password.length > 50) {
+            errors.password = "Password cannot exceed more than 50 characters";
+        }
+        return errors;
+    };
+
     return (
-        <div>
-            <section className="vh-100">
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col col-xl-10">
-                            <div className="card" style={{ borderRadius: "1rem" }}>
-                                <div className="row g-0">
-                                    <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                        <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                                            alt="login form"
-                                            className="img-fluid"
-                                            style={{ borderRadius: "1rem 0 0 1rem" }}
-                                        />
-                                    </div>
-                                    <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                        <div className="card-body p-4 p-lg-5 text-black">
-                                            <form>
-                                                <div className="d-flex align-items-center mb-3 pb-1">
-                                                    <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}></i>
-                                                    <span className="h1 fw-bold mb-0">Logo</span>
-                                                </div>
-
-                                                <h2 className="fw-normal mb-3 pb-3 text-center" style={{ letterSpacing: "1px" }}>
-                                                    Sign into your account
-                                                </h2>
-
-                                                <div className="form-outline mb-4">
-                                                    <input
-                                                        type="email"
-                                                        id="form2Example17"
-                                                        className="form-control form-control-lg"
-                                                    />
-                                                    <label className="form-label" htmlFor="form2Example17">
-                                                        Email address
-                                                    </label>
-                                                </div>
-                                                <div className="form-outline mb-4">
-                                                    <input
-                                                        type="password"
-                                                        id="form2Example27"
-                                                        className="form-control form-control-lg"
-                                                    />
-                                                    <label className="form-label" htmlFor="form2Example27">
-                                                        Password
-                                                    </label>
-                                                </div>
-                                                <div className="pt-1 mb-4">
-                                                    <button className="btn btn-dark btn-lg btn-block" type="button">
-                                                        Login
-                                                    </button>
-                                                </div>
-                                                <a className="small text-muted" href="#!">
-                                                    Forgot password?
-                                                </a>
-                                                <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                                                    Donot have an account? <a href="#!" style={{ color: "#393f81" }}>
-                                                        Register here
-                                                    </a>
-                                                </p>
-                                               
-                                            </form>
-                                        </div>
-                                    </div>
+        // <div className="">
+            <div className="container">
+                <div className="row row-cols-1 row-cols-xl-2 row-cols-lg-2 row-cols-md-1 bg-white p-5 my-4 d-flex align-items-center justify-content-center mx-auto" 
+                >
+                    <div className="col text-center">
+                        <img src={img} alt="" style={{ width: "78%" }} />
+                    </div>
+                    <div className="col my-5 px-5">
+                        {Object.keys(formErrors).length === 0 && isSubmit ? (
+                            <div className="ui message success">Signed in successfully</div>
+                        ) : ""}
+                        <form onSubmit={handleSubmit}>
+                            <h2 className="text-center">Login</h2>
+                            <div className="form-group my-3">
+                                <label htmlFor="email" className=" col-form-label d-flex align-items-center fw-bold">Email</label>
+                                <div>
+                                    <input type="email" name="email" className="form-control productInput mx-0" id="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
                                 </div>
                             </div>
-                        </div>
+                            <p className="text-danger" >{formErrors.email}</p>
+                            <div className="form-group my-3">
+                                <label htmlFor="password" className=" col-form-label d-flex align-items-center fw-bold">Password</label>
+                                <div>
+                                    <input type="password" name="password" className="form-control productInput mx-0" id="password" placeholder="Password" value={formValues.password} onChange={handleChange} />
+                                </div>
+                            </div>
+                            <p className="text-danger" >{formErrors.password}</p>
+                            <div className="my-4">
+                                <button className="btn btn-success w-100" style={{height:"45px"}}>Submit</button>
+                            </div>
+                            <div className="form-group d-flex justify-content-between mt-3">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <label className="form-check-label" htmlFor="flexCheckChecked">
+                                        Remember Me
+                                    </label>
+                                </div>
+                                <div>
+                                    <Link to="#" style={{textDecoration:"none"}}>Forgot Password?</Link>
+                                </div>
+                            </div>
+                            <div className="mt-3 d-flex justify-content-center">
+                                <div className="mx-1">Not a member?</div>
+                                <div><Link to="/registration" className="mx-1" style={{textDecoration:"none"}}>Sign up</Link></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        // </div>
     );
 }
+
+export default Login;

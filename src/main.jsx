@@ -20,6 +20,7 @@ import Texttile from './components/Textile/Texttile.jsx';
 import PendingOrder from './components/PendingOrder/PendingOrder.jsx';
 import DeliveredOrder from './components/DeliveredOrder/DeliveredOrder.jsx';
 import Discount from './components/Discount/Discount.jsx';
+import Registration from './components/Registration/Registration.jsx';
 // import Discount from '@mui/icons-material';
 
 const router = createBrowserRouter([
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: '/discount',
         element: <Discount />
+      },
+      {
+        path: '/registration',
+        element: <Registration />
       }
     ]
   }

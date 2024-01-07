@@ -3,39 +3,15 @@ import '../ProductList/ProductList.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
-import CategoryDiscount from '../CategoryDiscount/CategoryDiscount';
 const UserData = [
-    { id: 1, title: 'Summer', percentage: "10%" },
-    { id: 2, title: 'Winter', percentage: "20%" },
-    { id: 3, title: 'Flash Sale', percentage: "30%" },
-    { id: 4, title: 'Eid Offer', percentage: "40%" },
-    { id: 5, title: 'Christmas Offer', percentage: "50%" },
-    { id: 6, title: 'Puja Offer', percentage: "60%" },
-    { id: 7, title: 'Special Offer', percentage: "70%" },
+    { id: 1, title: 'Men', percentage: "10%" },
+    { id: 2, title: 'Women', percentage: "20%" },
+    { id: 3, title: 'Kids', percentage: "30%" },
+    { id: 4, title: 'All', percentage: "40%" },
 ];
 
-const Discount = () => {
-    const [query, setQuery] = useState("");
-    const [entriesPerPage, setEntriesPerPage] = useState(5);
-    const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = Math.ceil(UserData.length / entriesPerPage);
-    const [showDiscountModal, setShowDiscountModal] = useState(false);
-
-    const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
-    };
-
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            handlePageChange(currentPage + 1);
-        }
-    };
-
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            handlePageChange(currentPage - 1);
-        }
-    };
+const CategoryDiscount = () => {
+    const [showDiscountCategoryModal, setShowDiscountCategoryModal] = useState(false);
 
     const handleRemove = (id) => {
         const userToRemove = UserData.find((user) => user.id === id);
@@ -61,52 +37,36 @@ const Discount = () => {
     };
 
     const handleClose = () => {
-        setShowDiscountModal(false);
+        setShowDiscountCategoryModal(false);
     };
 
     const handleShow = (modalType) => {
-         if (modalType === "discountType") {
-            setShowDiscountModal(true);
-        }
+        if (modalType === "discountcategory") {
+            setShowDiscountCategoryModal(true);
+        } 
     };
 
 
     return (
         <div>
-            <CategoryDiscount />
-            {/* <div className='mb-5'></div> */}
-            <div className="container mt-5">
+            <div className="container">
                 <div className='mt-2'>
                     <div className="table_header">
-                        <div className='d-flex align-items-center'>
-                            <h6 className='mb-0'>Show </h6>
-                            <select
-                                className="form-select mx-2"
-                                onChange={(e) => setEntriesPerPage(parseInt(e.target.value))}
-                                value={entriesPerPage}
-                                style={{ flex: '1', fontWeight: "bold" }}
-                            >
-                                <option value={5}>5</option>
-                                <option value={10}>10</option>
-                                <option value={20}>20</option>
-                            </select>
-                            <h6 className='mb-0'>entries </h6>
-                        </div>
-                        <div><h4>Discount Type</h4></div>
+                        <div></div>
+                        <div><h4>Discount Category</h4></div>
 
                         <div className='d-flex flex-row' >
-                            <input placeholder='Search' className='searchInput' onChange={(e) => setQuery(e.target.value)} />
-                            <a className='btn add_new' onClick={() => handleShow("discountType")}>
+                            <a className='btn add_new' onClick={() => handleShow("discountcategory")}>
                                 +Add New
                             </a>
-                            <Modal show={showDiscountModal} onHide={handleClose} backdrop="static"
+                            <Modal show={showDiscountCategoryModal} onHide={handleClose} backdrop="static"
                                 keyboard={false}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Add New Type</Modal.Title>
+                                    <Modal.Title>Add New Category</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <b>Enter Discount Type</b>
-                                    <input type="text" className="form-control productInput mx-0 my-2" id="newDiscount" placeholder="Add New Type" />
+                                    <b>Enter Discount Category</b>
+                                    <input type="text" className="form-control productInput mx-0 my-2" id="newDiscount" placeholder="Add New Category" />
                                     <b>Enter Percentage</b>
                                     <input type="text" className="form-control productInput mx-0 mt-2" id="newDiscount" placeholder="Add Percentage" />
                                 </Modal.Body>
@@ -131,12 +91,7 @@ const Discount = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {UserData.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage).filter((user) =>
-                                Object.values(user).some(
-                                    (field) =>
-                                        typeof field === 'string' && field.toLowerCase().includes(query.toLowerCase())
-                                )
-                            ).slice(0, entriesPerPage).map((order) => (
+                            {UserData.map((order) => (
                                 <tr key={order.id}>
                                     <td className="text-center">{order.id}</td>
                                     <td className="text-center">{order.title}</td>
@@ -166,7 +121,7 @@ const Discount = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className='d-flex justify-content-end mb-2' >
+                {/* <div className='d-flex justify-content-end mb-2' >
                     {totalPages > 1 ?
                         <ul className="pagination" >
                             <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
@@ -180,12 +135,10 @@ const Discount = () => {
                             </li>
                         </ul> : null
                     }
-
-                </div>
+                </div> */}
             </div>
-
         </div>
     );
 };
 
-export default Discount;
+export default CategoryDiscount;
